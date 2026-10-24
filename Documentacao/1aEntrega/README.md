@@ -10,13 +10,13 @@
 
 **Nome do Projeto:** SmartVehicle – Veículo Conectado com Dashboard Digital  
 
-**Grupo:** [indicar número do grupo]
+**Grupo: 2**
 
 **Elementos do Grupo:**
-Joao Santos - 50031111
-Tomas Pereira - 20241740
-Rui Grosso - 20241591
-Gonçalo Pereira - 20241565
+Joao Santos - 50031111;
+Tomas Pereira - 20241740;
+Rui Grosso - 20241591;
+Gonçalo Pereira - 20241565;
 
 **Unidades Curriculares envolvidas:**
 - Sistemas Distribuídos
@@ -43,6 +43,16 @@ O ESP32 será responsável pelo controlo do veículo e pela recolha de dados dos
 O projeto será desenvolvido de forma progressiva, começando pelas funções mais simples do veículo e acrescentando posteriormente sensores, comunicação, dashboard e outras funcionalidades.
 
 ## 3. Problema e Motivação
+
+Os automóveis modernos utilizam vários sistemas eletrónicos que trabalham em conjunto, como sensores, unidades de controlo, sistemas de iluminação, medição de velocidade, deteção de obstáculos e comunicação entre diferentes componentes.
+
+O SmartVehicle pretende criar uma versão simplificada deste tipo de sistema, utilizando um pequeno veículo físico e componentes de baixo custo.
+
+A escolha deste projeto permite aplicar, num único protótipo, conhecimentos de hardware, programação, Internet of Things, Sistemas Distribuídos, Engenharia de Software e Inteligência Artificial.
+
+Outra motivação é trabalhar com dados reais recolhidos pelos sensores do veículo. Esses dados poderão ser transmitidos, armazenados e posteriormente utilizados pelo dashboard e pela componente de Inteligência Artificial.
+
+O projeto também permite desenvolver a solução de forma progressiva, começando por funcionalidades básicas e acrescentando novas capacidades à medida que o desenvolvimento avança.
 
 ## 4. Objetivos
 
