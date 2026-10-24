@@ -410,7 +410,7 @@ Na parte frontal do veículo será instalado um sensor ultrassónico HC-SR04 par
 
 Junto às rodas serão utilizados discos encoder e sensores óticos LM393, permitindo contar as rotações das rodas e calcular valores como velocidade e distância percorrida.
 
-Serão também instalados LEDs para representar os sistemas de iluminação do veículo e um buzzer para representar a buzina.
+Depois de o núcleo funcional do veículo estar concluído, poderão ser adicionados LEDs para representar os sistemas de iluminação e um buzzer para representar a buzina, bem como outros componentes complementares que se revelem viáveis.
 
 A disposição preliminar dos componentes será semelhante à seguinte:
 
