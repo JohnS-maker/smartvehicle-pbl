@@ -481,26 +481,27 @@ O desenvolvimento físico será realizado de forma progressiva. Inicialmente ser
 
 O desenvolvimento do SmartVehicle será realizado de forma incremental. Cada fase deverá produzir uma parte funcional do sistema antes de avançar para a integração seguinte.
 
-| Período / Entrega | Trabalho Previsto |
+| Data / Período | Atividade / Entrega |
 |---|---|
-| Até 27/10/2026 | Definição da ideia, objetivos, arquitetura preliminar, hardware, software, planeamento e documentação da proposta inicial |
-| Final de outubro / início de novembro | Preparação do ambiente de desenvolvimento e primeiros testes com ESP32 |
-| Novembro | Testes individuais de LEDs, buzzer, sensores, motores e controlador TB6612FNG |
-| Até 13/11/2026 | Definição dos requisitos funcionais e não funcionais para Engenharia de Software |
-| Novembro | Montagem do chassis 2WD e implementação dos movimentos básicos |
-| Novembro | Integração do sensor de obstáculos e sensores de velocidade |
-| Até 30/11/2026 | Desenvolvimento de um primeiro protótipo funcional integrando hardware e software |
-| Dezembro | Desenvolvimento da comunicação Wi-Fi, API REST, servidor e base de dados MySQL |
-| Dezembro / janeiro | Desenvolvimento e integração do dashboard digital |
-| Janeiro | Integração dos restantes sensores, atuadores e funcionalidades do veículo |
-| Até 15/01/2027 | Desenvolvimento e documentação do plano de testes |
-| Janeiro | Preparação dos dados e desenvolvimento da componente de Inteligência Artificial |
-| Até 29/01/2027 | Conclusão da componente de Inteligência Artificial |
-| Até 01/02/2027 | Integração final, testes, correções, documentação e entrega final do projeto |
+| 27/10/2026 | Proposta inicial do projeto e apresentação |
+| 28/10 a 13/11/2026 | Definição dos requisitos funcionais e não funcionais |
+| 14/11/2026 | Definição das funcionalidades, sensores e atuadores da componente IoT |
+| Novembro | Testes individuais de ESP32, motores, sensores e atuadores |
+| Novembro | Montagem do chassis e implementação do movimento básico |
+| 30/11/2026 | Primeiro protótipo funcional integrando hardware e software |
+| Dezembro | Implementação da comunicação Wi-Fi, servidor Web, API REST e MySQL |
+| Dezembro | Desenvolvimento inicial do dashboard e recolha de telemetria |
+| 18/12/2026 | Planeamento preliminar da componente de Inteligência Artificial |
+| Início de janeiro de 2027 | Estrutura da base de dados e protocolo REST |
+| Janeiro | Integração de sensores, dashboard, servidor e armazenamento de dados |
+| Janeiro | Recolha e preparação de dados para Inteligência Artificial |
+| 15/01/2027* | Plano e validação de testes |
+| 29/01/2027 | Conclusão da componente de Inteligência Artificial |
+| Segunda metade de janeiro | Integração final, correções, vídeo técnico, poster e vídeo promocional |
+| 01/02/2027 | Entrega final e apresentação em Computação Física e IoT |
+| 02/02/2027 | Apresentação final em Sistemas Distribuídos |
 
 ### Gráfico de Gantt
-
-O seguinte gráfico apresenta a calendarização preliminar das principais atividades do projeto. As datas poderão ser ajustadas de acordo com a evolução do desenvolvimento.
 
 ```mermaid
 gantt
@@ -508,32 +509,35 @@ gantt
     dateFormat  YYYY-MM-DD
     axisFormat  %d/%m
 
-    section Planeamento
-    Proposta inicial e arquitetura         :2026-10-20, 2026-10-27
+    section Milestone 1
+    Proposta inicial                     :2026-10-20, 2026-10-27
 
     section Engenharia de Software
-    Definição de requisitos                :2026-10-28, 2026-11-13
+    Requisitos                           :2026-10-28, 2026-11-13
 
-    section Hardware e IoT
-    Testes individuais de componentes      :2026-10-28, 2026-11-15
-    Montagem do veículo base               :2026-11-05, 2026-11-22
-    Sensores e controlo do veículo          :2026-11-10, 2026-11-30
-    Protótipo funcional                    :2026-11-20, 2026-11-30
+    section IoT e Hardware
+    Funcionalidades e sensores           :2026-10-28, 2026-11-14
+    Testes individuais                   :2026-10-28, 2026-11-15
+    Montagem do veículo base             :2026-11-05, 2026-11-22
+    Protótipo hardware/software          :2026-11-15, 2026-11-30
 
     section Sistemas Distribuídos
-    Comunicação Wi-Fi e API REST           :2026-12-01, 2026-12-20
-    Servidor Web e MySQL                   :2026-12-01, 2026-12-20
-    Integração com dashboard               :2026-12-15, 2027-01-10
-
-    section Testes
-    Testes e validação                      :2026-12-15, 2027-01-15
+    Wi-Fi e API REST                     :2026-12-01, 2026-12-20
+    Servidor Web e MySQL                 :2026-12-01, 2027-01-09
+    Dashboard e integração               :2026-12-10, 2027-01-15
 
     section Inteligência Artificial
-    Preparação e tratamento dos dados       :2027-01-04, 2027-01-17
-    Desenvolvimento da componente IA        :2027-01-11, 2027-01-29
+    Planeamento do modelo                :2026-12-10, 2026-12-18
+    Recolha e preparação de dados        :2026-12-15, 2027-01-17
+    Desenvolvimento da componente IA     :2027-01-04, 2027-01-29
 
-    section Integração Final
-    Integração e correções finais            :2027-01-16, 2027-02-01
+    section Testes
+    Testes e validação                   :2026-12-15, 2027-01-15
+
+    section Entrega Final
+    Integração e correções               :2027-01-10, 2027-01-31
+    Vídeo técnico e poster               :2027-01-18, 2027-01-31
+    Entrega e apresentações              :2027-02-01, 2027-02-02
 ```
 
 ### Fases de Desenvolvimento
