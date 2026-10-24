@@ -46,6 +46,8 @@ O projeto será desenvolvido de forma progressiva, começando pelas funções ma
 
 Os automóveis modernos utilizam vários sistemas eletrónicos que trabalham em conjunto, como sensores, unidades de controlo, sistemas de iluminação, medição de velocidade, deteção de obstáculos e comunicação entre diferentes componentes.
 
+### Problema - Como integrar, num veículo de baixo custo, controlo remoto, sensores, telemetria, armazenamento de dados e análise inteligente, mantendo uma arquitetura simples, modular e adequada a um protótipo académico?
+
 O SmartVehicle pretende criar uma versão simplificada deste tipo de sistema, utilizando um pequeno veículo físico e componentes de baixo custo.
 
 A escolha deste projeto permite aplicar, num único protótipo, conhecimentos de hardware, programação, Internet of Things, Sistemas Distribuídos, Engenharia de Software e Inteligência Artificial.
