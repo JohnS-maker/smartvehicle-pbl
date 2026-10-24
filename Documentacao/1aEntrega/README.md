@@ -304,6 +304,48 @@ Esta arquitetura é preliminar e poderá ser ajustada durante o desenvolvimento 
 
 ## 10. Hardware e Software
 
+### Hardware
+
+O hardware previsto para o desenvolvimento do SmartVehicle é constituído por componentes de baixo custo, adequados a prototipagem e compatíveis com o ESP32.
+
+| Componente | Função no Projeto |
+|---|---|
+| ESP32 | Unidade principal de controlo do veículo |
+| Chassis 2WD | Estrutura física do SmartVehicle |
+| 2 Motores DC | Movimento do veículo |
+| TB6612FNG | Controlo dos motores |
+| HC-SR04 | Medição da distância a obstáculos |
+| 2 Sensores LM393 | Leitura dos discos encoder |
+| Discos Encoder | Permitir medir a rotação das rodas |
+| LEDs | Representação de faróis, piscas e outras luzes |
+| Buzzer | Representação da buzina |
+| Sensor de luminosidade | Deteção da luz ambiente |
+| Sensor de temperatura | Medição da temperatura |
+| Breadboard | Montagem e teste dos circuitos |
+| Cabos de ligação | Ligação entre os diferentes componentes |
+| Suporte para pilhas/bateria | Alimentação do sistema físico |
+
+Alguns componentes adicionais poderão ser introduzidos mais tarde, caso sejam necessários para implementar funcionalidades opcionais, como RFID, climatização simulada ou monitorização mais detalhada da bateria.
+
+### Software
+
+Durante o desenvolvimento prevê-se utilizar:
+
+| Software / Tecnologia | Utilização |
+|---|---|
+| Arduino IDE | Programação do ESP32 |
+| Wokwi | Simulação e testes de circuitos quando necessário |
+| Git | Controlo de versões |
+| GitHub | Repositório do projeto e documentação |
+| HTML | Estrutura do dashboard |
+| CSS | Aspeto visual do dashboard |
+| JavaScript | Comportamento e interação do dashboard |
+| API REST | Comunicação entre o ESP32 e o servidor |
+| MySQL | Armazenamento dos dados recolhidos |
+| Backend / Servidor Web | Receção, processamento e disponibilização dos dados |
+
+As tecnologias específicas utilizadas no backend e na componente de Inteligência Artificial ainda serão definidas durante o desenvolvimento.
+
 ## 11. Artefacto Físico
 
 ## 12. Planeamento e Calendarização
