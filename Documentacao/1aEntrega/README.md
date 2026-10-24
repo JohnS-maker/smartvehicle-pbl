@@ -386,6 +386,30 @@ Depois de o núcleo principal estar funcional, poderão ser utilizados outros co
 | Sensor de temperatura | Medição da temperatura |
 | Outros componentes | Funcionalidades adicionais que se revelem viáveis |
 
+### Lista Preliminar de Material
+
+| Componente | Quantidade | Utilização | Estado |
+|---|---:|---|---|
+| ESP32 | 1 | Unidade principal de controlo | Adquirido |
+| Chassis 2WD | 1 | Estrutura física do veículo | Adquirido |
+| Motores DC | 2 | Movimento do veículo | Incluídos no chassis |
+| Rodas | 2 | Deslocação do veículo | Incluídas no chassis |
+| Discos encoder | 2 | Medição da rotação das rodas | Incluídos no chassis |
+| TB6612FNG | 1 | Controlo dos dois motores DC | Adquirido |
+| HC-SR04 | 1 | Medição da distância a obstáculos | Adquirido |
+| Módulos de sensor ótico com LM393 | 2 | Leitura dos discos encoder | Adquiridos |
+| Breadboard | 1 | Montagem e teste dos circuitos | Incluída no kit ESP32 |
+| Cabos Dupont | Vários | Ligações elétricas entre componentes | Incluídos no kit ESP32 |
+| LEDs | Vários | Iluminação e sinalização | Incluídos no kit ESP32 |
+| Resistências | Várias | Proteção e adaptação dos circuitos | Incluídas no kit ESP32 |
+| Buzzer | 1 | Simulação da buzina | Incluído no kit ESP32 |
+| Sensor de luminosidade | 1 | Deteção da luz ambiente | Incluído no kit ESP32 |
+| Sensor de temperatura | 1 | Medição da temperatura | Incluído no kit ESP32 |
+| Suporte para 4 pilhas AA | 1 | Alimentação dos motores | Incluído no chassis |
+| Pilhas AA | 4 | Alimentação dos motores | A adquirir |
+| Componentes para adaptação de tensão do HC-SR04 | A definir | Proteção da entrada do ESP32 | A adquirir / definir |
+| Sistema de alimentação final do ESP32 | A definir | Alimentação autónoma do microcontrolador | A definir |
+
 ### Software e Tecnologias
 
 Durante o desenvolvimento prevê-se utilizar:
