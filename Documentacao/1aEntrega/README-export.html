@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SmartVehicle – Proposta Inicial do Projeto</title>
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 1.5cm;
+    }
+
+    :root {
+      --bg: #ffffff;
+      --text: #1f2937;
+      --muted: #4b5563;
+      --line: #d1d5db;
+      --heading: #111827;
+      --accent: #1f4e79;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.55;
+      font-size: 12pt;
+    }
+
+    .page {
+      max-width: 210mm;
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    h1, h2, h3, h4 {
+      color: var(--heading);
+      page-break-after: avoid;
+      margin-top: 1.2em;
+      margin-bottom: 0.5em;
+      font-weight: 700;
+    }
+
+    h1 {
+      font-size: 22pt;
+      text-align: center;
+      margin-top: 0;
+      margin-bottom: 0.8em;
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 0.25em;
+    }
+
+    h2 {
+      font-size: 16pt;
+      color: var(--accent);
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 0.2em;
+    }
+
+    h3 {
+      font-size: 13pt;
+    }
+
+    p, li {
+      margin: 0.35em 0;
+    }
+
+    ul, ol {
+      margin-top: 0.5em;
+      margin-bottom: 0.8em;
+      padding-left: 1.5em;
+    }
+
+    strong {
+      color: var(--heading);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0.75em 0 1.2em;
+      font-size: 11pt;
+    }
+
+    th, td {
+      border: 1px solid var(--line);
+      padding: 0.45em 0.6em;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th {
+      background: #f3f4f6;
+      font-weight: 700;
+    }
+
+    code, pre {
+      font-family: Consolas, monospace;
+      background: #f3f4f6;
+      border-radius: 4px;
+    }
+
+    pre {
+      padding: 0.8em;
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+
+    blockquote {
+      margin: 0.8em 0;
+      padding-left: 1em;
+      border-left: 4px solid var(--accent);
+      color: var(--muted);
+    }
+
+    .meta {
+      font-weight: 600;
+      margin-bottom: 0.5em;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid var(--line);
+      margin: 1.2em 0;
+    }
+
+    @media print {
+      body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .page {
+        max-width: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <h1>SmartVehicle – Proposta Inicial do Projeto</h1>
+
+    <h2>1. Identificação do Projeto</h2>
+
+    <p><strong>Universidade:</strong> Universidade Europeia</p>
+    <p><strong>Faculdade/Escola:</strong> IADE – Faculdade de Design, Tecnologia e Comunicação</p>
+    <p><strong>Curso:</strong> Licenciatura em Engenharia Informática</p>
+    <p><strong>Ano letivo:</strong> 2026/2027</p>
+    <p><strong>Semestre:</strong> 5.º Semestre</p>
+
+    <p><strong>Nome do Projeto:</strong> SmartVehicle – Veículo Conectado com Dashboard Digital</p>
+    <p><strong>Grupo:</strong> 2</p>
+
+    <p><strong>Elementos do Grupo:</strong></p>
+    <ul>
+      <li>Joao Santos - 50031111;</li>
+      <li>Tomas Pereira - 20241740;</li>
+      <li>Rui Grosso - 20241591;</li>
+      <li>Gonçalo Pereira - 20241565;</li>
+    </ul>
+
+    <p><strong>Unidades Curriculares envolvidas:</strong></p>
+    <ul>
+      <li>Sistemas Distribuídos</li>
+      <li>Computação Física e IoT</li>
+      <li>Inteligência Artificial</li>
+      <li>Engenharia de Software</li>
+    </ul>
+
+    <p><strong>Palavras-chave:</strong> ESP32, IoT, SmartVehicle, sensores, atuadores, telemetria, dashboard digital, sistemas distribuídos, inteligência artificial.</p>
+    <p><strong>Repositório GitHub:</strong> https://github.com/JohnS-maker/smartvehicle-pbl</p>
+
+    <h2>2. Descrição do Projeto</h2>
+
+    <p>O SmartVehicle é um protótipo de um pequeno veículo inteligente baseado no microcontrolador ESP32.</p>
+    <p>O objetivo é construir um veículo físico capaz de se movimentar, utilizar sensores e executar algumas funções semelhantes às existentes num automóvel moderno.</p>
+    <p>O veículo deverá conseguir avançar, recuar, virar e parar, medir a sua velocidade e detetar obstáculos à sua frente. Depois de estas funcionalidades essenciais estarem implementadas, poderão ser acrescentadas outras capacidades.</p>
+    <p>Será desenvolvido um dashboard digital que permitirá controlar o veículo e visualizar informação sobre o seu funcionamento, como velocidade, distância a obstáculos e estado de alguns dos seus sensores.</p>
+    <p>O ESP32 será responsável pelo controlo do veículo e pela recolha de dados dos sensores. Esses dados serão enviados através de Wi-Fi para um servidor, onde poderão ser armazenados numa base de dados e utilizados em diferentes camadas da solução.</p>
+    <p>O projeto será desenvolvido de forma progressiva, começando pelas funções mais simples do veículo e acrescentando posteriormente sensores, comunicação, dashboard e outras funcionalidades.</p>
+
+    <h2>3. Problema e Motivação</h2>
+
+    <p>Os automóveis modernos utilizam vários sistemas eletrónicos que trabalham em conjunto, como sensores, unidades de controlo, sistemas de iluminação, medição de velocidade, deteção de obstáculos e outros mecanismos de segurança.</p>
+    <p><strong>Problema –</strong> Como integrar, num veículo de baixo custo, controlo remoto, sensores, telemetria, armazenamento de dados e análise inteligente, mantendo uma arquitetura simples, modular e adequada para demonstração e aprendizagem?</p>
+    <p>O SmartVehicle pretende criar uma versão simplificada deste tipo de sistema, utilizando um pequeno veículo físico e componentes de baixo custo.</p>
+    <p>A escolha deste projeto permite aplicar, num único protótipo, conhecimentos de hardware, programação, Internet of Things, Sistemas Distribuídos, Engenharia de Software e Inteligência Artificial.</p>
+    <p>Outra motivação é trabalhar com dados reais recolhidos pelos sensores do veículo. Esses dados poderão ser transmitidos, armazenados e posteriormente utilizados pelo dashboard e pela componente de análise inteligente.</p>
+    <p>O projeto também permite desenvolver a solução de forma progressiva, começando por funcionalidades básicas e acrescentando novas capacidades à medida que o desenvolvimento avança.</p>
+
+    <h2>4. Objetivos</h2>
+
+    <p>O principal objetivo do SmartVehicle é desenvolver um pequeno veículo conectado, baseado em ESP32, capaz de ser controlado através de um dashboard digital e de recolher dados do seu funcionamento.</p>
+
+    <h3>Funcionalidades Essenciais – MVP</h3>
+    <ul>
+      <li>controlar o movimento do veículo;</li>
+      <li>permitir avançar, recuar, virar e parar;</li>
+      <li>controlar os dois motores através do ESP32;</li>
+      <li>medir a distância a obstáculos;</li>
+      <li>medir a rotação das rodas e estimar a velocidade;</li>
+      <li>comunicar através de Wi-Fi;</li>
+      <li>enviar dados do veículo para um servidor;</li>
+      <li>armazenar os dados recolhidos numa base de dados MySQL;</li>
+      <li>apresentar informação básica num dashboard digital;</li>
+      <li>permitir o envio de comandos através do dashboard.</li>
+    </ul>
+
+    <h3>Funcionalidades Complementares</h3>
+    <ul>
+      <li>faróis;</li>
+      <li>piscas;</li>
+      <li>buzina;</li>
+      <li>deteção da luminosidade ambiente;</li>
+      <li>medição da temperatura;</li>
+      <li>luzes de travagem;</li>
+      <li>luz de marcha-atrás;</li>
+      <li>outras funcionalidades viáveis.</li>
+    </ul>
+
+    <h3>Inteligência Artificial</h3>
+    <p>O projeto deverá também incluir uma componente de Inteligência Artificial.</p>
+    <p>Esta componente utilizará os dados recolhidos pelos sensores do SmartVehicle, juntamente com pelo menos uma fonte de dados adicional, para realizar uma função analítica ou preditiva.</p>
+    <p>A funcionalidade concreta da componente de Inteligência Artificial será definida numa fase posterior do projeto.</p>
+
+    <h4>Hipótese Preliminar</h4>
+    <p>Como hipótese inicial, pretende-se estudar uma componente de Inteligência Artificial capaz de analisar ou estimar o risco de aproximação a obstáculos.</p>
+    <ul>
+      <li>distância ao obstáculo;</li>
+      <li>velocidade estimada;</li>
+      <li>evolução destes valores ao longo do tempo.</li>
+    </ul>
+    <p>Estes dados deverão ser combinados com uma fonte adicional, como um conjunto de dados público ou valores de referência relacionados com distância de segurança, velocidade ou travagem.</p>
+
+    <h2>5. Público-Alvo</h2>
+
+    <p>O SmartVehicle é principalmente um projeto académico e demonstrativo.</p>
+    <p>O protótipo destina-se sobretudo a estudantes, docentes e utilizadores interessados em perceber como diferentes áreas da Engenharia Informática podem ser integradas num único sistema.</p>
+    <p>O projeto permite demonstrar, de forma prática, a ligação entre:</p>
+    <ul>
+      <li>microcontroladores;</li>
+      <li>sensores e atuadores;</li>
+      <li>Internet of Things;</li>
+      <li>comunicação entre sistemas;</li>
+      <li>armazenamento de dados;</li>
+      <li>desenvolvimento de software;</li>
+      <li>Inteligência Artificial.</li>
+    </ul>
+    <p>O dashboard será a principal interface de utilização do sistema, permitindo controlar o veículo e acompanhar os dados recolhidos pelos sensores.</p>
+    <p>O SmartVehicle não pretende ser um produto comercial, mas sim uma plataforma de aprendizagem, demonstração e experimentação.</p>
+
+    <h2>6. Guiões de Teste</h2>
+
+    <h3>Guião de Teste 1 – Controlo do Movimento</h3>
+    <p><strong>Objetivo:</strong> Verificar se o utilizador consegue controlar corretamente o movimento do SmartVehicle através do dashboard.</p>
+    <ol>
+      <li>Ligar o SmartVehicle.</li>
+      <li>Abrir o dashboard digital.</li>
+      <li>Confirmar que existe comunicação com o veículo.</li>
+      <li>Selecionar o comando para avançar.</li>
+      <li>Confirmar que o veículo se desloca para a frente.</li>
+      <li>Selecionar o comando para virar à esquerda.</li>
+      <li>Confirmar que o veículo altera a direção.</li>
+      <li>Selecionar o comando para virar à direita.</li>
+      <li>Confirmar que o veículo altera a direção.</li>
+      <li>Selecionar o comando para parar.</li>
+      <li>Confirmar que o veículo fica imobilizado.</li>
+    </ol>
+    <p><strong>Resultado esperado:</strong> O veículo deverá responder corretamente aos comandos enviados através do dashboard.</p>
+
+    <h3>Guião de Teste 2 – Deteção de Obstáculos</h3>
+    <p><strong>Objetivo:</strong> Verificar se o SmartVehicle consegue detetar um obstáculo à sua frente e impedir uma aproximação considerada insegura.</p>
+    <ol>
+      <li>Ligar o SmartVehicle.</li>
+      <li>Colocar um obstáculo à frente do veículo.</li>
+      <li>Colocar o veículo em movimento para a frente.</li>
+      <li>Confirmar que o sensor frontal mede a distância ao obstáculo.</li>
+      <li>Confirmar que essa distância é apresentada no dashboard.</li>
+      <li>Aproximar o veículo do obstáculo.</li>
+      <li>Verificar se o sistema identifica quando a distância fica abaixo do limite de segurança.</li>
+      <li>Confirmar que o veículo deixa de avançar.</li>
+    </ol>
+    <p><strong>Resultado esperado:</strong> O sistema deverá detetar o obstáculo, apresentar a distância no dashboard e impedir o avanço quando a distância for considerada insegura.</p>
+
+    <h3>Guião de Teste 3 – Telemetria e Dashboard</h3>
+    <p><strong>Objetivo:</strong> Verificar se os dados recolhidos pelos sensores do SmartVehicle são corretamente enviados, armazenados e apresentados no dashboard.</p>
+    <ol>
+      <li>Ligar o SmartVehicle.</li>
+      <li>Confirmar que o ESP32 está ligado à rede Wi‑Fi.</li>
+      <li>Ativar a recolha de dados do sensor frontal.</li>
+      <li>Colocar um obstáculo a uma determinada distância do veículo.</li>
+      <li>Confirmar que o ESP32 obtém o valor medido pelo sensor.</li>
+      <li>Confirmar que o valor é enviado para o servidor através da comunicação definida.</li>
+      <li>Verificar se o dado recebido é armazenado na base de dados MySQL.</li>
+      <li>Abrir o dashboard digital.</li>
+      <li>Confirmar que o valor da distância é apresentado no dashboard.</li>
+      <li>Alterar a posição do obstáculo.</li>
+      <li>Confirmar que o novo valor é novamente recolhido, transmitido, armazenado e atualizado no dashboard.</li>
+    </ol>
+    <p><strong>Resultado esperado:</strong> O valor medido pelo sensor deverá percorrer corretamente todo o sistema, desde o ESP32 até ao servidor, base de dados e dashboard, permitindo ao utilizador visualizar informação atualizada sobre o funcionamento do veículo.</p>
+
+    <h2>7. Enquadramento nas Unidades Curriculares</h2>
+
+    <h3>Sistemas Distribuídos</h3>
+    <p>Nesta Unidade Curricular será trabalhada a arquitetura que permite a comunicação entre os diferentes componentes do sistema.</p>
+    <p>O SmartVehicle deverá enviar dados através de Wi-Fi para um servidor, permitindo posteriormente a sua utilização por outros componentes da solução, como o dashboard, a base de dados e a componente de Inteligência Artificial.</p>
+
+    <h3>Computação Física e IoT</h3>
+    <p>Serão trabalhados:</p>
+    <ul>
+      <li>programação do ESP32;</li>
+      <li>utilização de sensores;</li>
+      <li>utilização de atuadores;</li>
+      <li>controlo dos motores;</li>
+      <li>recolha de dados;</li>
+      <li>comunicação através de Wi-Fi;</li>
+      <li>envio dos dados recolhidos para o servidor.</li>
+    </ul>
+
+    <h3>Engenharia de Software</h3>
+    <p>Nesta Unidade Curricular serão definidos e especificados os requisitos do sistema.</p>
+    <ul>
+      <li>requisitos funcionais;</li>
+      <li>requisitos não funcionais;</li>
+      <li>modelação da solução;</li>
+      <li>testes;</li>
+      <li>validação do sistema.</li>
+    </ul>
+
+    <h3>Inteligência Artificial</h3>
+    <p>Os dados provenientes dos sensores deverão ser combinados com pelo menos uma fonte adicional de dados.</p>
+    <p>A componente de Inteligência Artificial será definida e desenvolvida numa fase posterior, de acordo com os requisitos e conteúdos da UC.</p>
+
+    <h2>8. Requisitos Técnicos e Tecnologias</h2>
+
+    <h3>Requisitos Técnicos Principais</h3>
+    <p>O sistema deverá:</p>
+    <ul>
+      <li>utilizar um microcontrolador ESP32;</li>
+      <li>integrar sensores e atuadores;</li>
+      <li>controlar os dois motores DC do veículo;</li>
+      <li>recolher dados dos sensores;</li>
+      <li>comunicar através de Wi-Fi;</li>
+      <li>enviar os dados recolhidos para um servidor Web;</li>
+      <li>utilizar uma API REST para a transmissão dos dados;</li>
+      <li>armazenar informação numa base de dados MySQL;</li>
+      <li>disponibilizar os dados recolhidos ao dashboard;</li>
+      <li>permitir ao utilizador enviar comandos para controlar o veículo;</li>
+      <li>incluir uma componente de Inteligência Artificial baseada nos dados recolhidos pelos sensores e em pelo menos uma fonte de dados adicional.</li>
+    </ul>
+
+    <h3>Tecnologias Previstas</h3>
+    <p><strong>Hardware principal:</strong></p>
+    <ul>
+      <li>ESP32;</li>
+      <li>chassis 2WD;</li>
+      <li>motores DC;</li>
+      <li>controlador de motores TB6612FNG;</li>
+      <li>sensor ultrassónico HC-SR04;</li>
+      <li>módulos de sensor ótico de velocidade com LM393;</li>
+      <li>discos encoder.</li>
+    </ul>
+
+    <p><strong>Hardware complementar:</strong></p>
+    <ul>
+      <li>LEDs;</li>
+      <li>buzzer;</li>
+      <li>sensor de luminosidade;</li>
+      <li>sensor de temperatura;</li>
+      <li>outros componentes necessários.</li>
+    </ul>
+
+    <p><strong>Software e ferramentas:</strong></p>
+    <ul>
+      <li>Arduino IDE;</li>
+      <li>Wokwi;</li>
+      <li>Git;</li>
+      <li>GitHub;</li>
+      <li>MySQL;</li>
+      <li>API REST;</li>
+      <li>tecnologias Web para desenvolvimento do dashboard.</li>
+    </ul>
+
+    <h2>9. Arquitetura da Solução</h2>
+
+    <p>A arquitetura do SmartVehicle será composta por vários componentes que comunicam entre si.</p>
+    <p>O ESP32 será a unidade principal instalada no veículo. Será responsável pela leitura dos sensores, controlo dos motores e ativação dos diferentes atuadores.</p>
+    <p>A comunicação com o restante sistema será realizada através de Wi-Fi. O ESP32 enviará os dados recolhidos para um servidor Web através de uma API REST e receberá os comandos necessários ao controlo do veículo.</p>
+    <p>O servidor Web funcionará como ponto central de comunicação entre o veículo, o dashboard e a base de dados MySQL.</p>
+    <p>O dashboard digital permitirá ao utilizador visualizar os dados do SmartVehicle e enviar comandos para o sistema.</p>
+    <p>A componente de Inteligência Artificial utilizará os dados recolhidos pelos sensores, juntamente com pelo menos uma fonte de dados adicional. A funcionalidade concreta desta componente será definida numa fase posterior.</p>
+
+    <pre>                         ┌──────────────────────┐
+                         │  Dashboard Digital   │
+                         │ controlo + informação│
+                         └──────────┬───────────┘
+                                    │
+                                    ↕
+                         ┌──────────────────────┐
+                         │ Servidor Web /       │
+                         │ API REST             │
+                         └───────┬───────┬──────┘
+                                 │       │
+                                 │       │ Wi‑Fi
+                                 ▼       ▼
+                        ┌────────────┐  ┌──────────────┐
+                        │   MySQL    │  │    ESP32     │
+                        └─────┬──────┘  └──────┬───────┘
+                              │                │
+                              │          ┌─────┴─────┐
+                              │          ▼           ▼
+                              │      ┌────────┐  ┌──────────┐
+                              │      │Sensores│  │Atuadores │
+                              │      └────────┘  └──────────┘
+                              │
+                              ▼
+                     ┌─────────────────┐
+Fonte de dados ─────►│ Inteligência    │
+adicional            │ Artificial      │
+                     └────────┬────────┘
+                              │
+                              └──► resultados para o sistema</pre>
+
+    <h3>Fluxo Principal de Dados</h3>
+    <ol>
+      <li>Os sensores recolhem informação do veículo.</li>
+      <li>O ESP32 recebe e processa os dados.</li>
+      <li>O ESP32 envia os dados através de Wi‑Fi para o servidor Web.</li>
+      <li>O servidor armazena a informação necessária na base de dados MySQL.</li>
+      <li>O dashboard consulta o sistema e apresenta a informação ao utilizador.</li>
+      <li>O utilizador pode enviar comandos através do dashboard.</li>
+      <li>O servidor transmite os comandos necessários ao ESP32.</li>
+      <li>A componente de Inteligência Artificial utiliza os dados do SmartVehicle juntamente com uma fonte de dados adicional.</li>
+      <li>Os resultados produzidos pela componente de Inteligência Artificial poderão ser disponibilizados ao restante sistema.</li>
+    </ol>
+
+    <h3>Segurança Local</h3>
+    <p>Algumas funções de segurança deverão funcionar diretamente no ESP32 e não depender da ligação ao servidor.</p>
+    <p>Por exemplo, se o sensor frontal detetar um obstáculo demasiado próximo, o ESP32 poderá impedir o veículo de continuar a avançar.</p>
+    <p>Desta forma, uma função básica de segurança continuará disponível mesmo que exista uma falha temporária na comunicação Wi‑Fi.</p>
+    <p>Esta arquitetura é preliminar e poderá ser ajustada durante o desenvolvimento do projeto.</p>
+
+    <h2>10. Hardware e Software</h2>
+
+    <h3>Hardware Essencial</h3>
+    <table>
+      <thead>
+        <tr><th>Componente</th><th>Função no Projeto</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>ESP32</td><td>Unidade principal de controlo do veículo</td></tr>
+        <tr><td>Chassis 2WD</td><td>Estrutura física do SmartVehicle</td></tr>
+        <tr><td>2 Motores DC</td><td>Movimento do veículo</td></tr>
+        <tr><td>TB6612FNG</td><td>Controlo dos motores</td></tr>
+        <tr><td>HC-SR04</td><td>Medição da distância a obstáculos</td></tr>
+        <tr><td>2 módulos de sensor ótico de velocidade com LM393</td><td>Leitura dos discos encoder</td></tr>
+        <tr><td>Discos Encoder</td><td>Permitem medir a rotação das rodas</td></tr>
+        <tr><td>Breadboard</td><td>Montagem e teste dos circuitos</td></tr>
+        <tr><td>Cabos de ligação</td><td>Ligações entre os diferentes componentes</td></tr>
+        <tr><td>Sistema de alimentação</td><td>Alimentação dos motores e dos restantes componentes</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Hardware Complementar</h3>
+    <table>
+      <thead>
+        <tr><th>Componente</th><th>Função Prevista</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>LEDs</td><td>Faróis, piscas e outras luzes do veículo</td></tr>
+        <tr><td>Buzzer</td><td>Simulação da buzina</td></tr>
+        <tr><td>Sensor de luminosidade</td><td>Deteção da luz ambiente</td></tr>
+        <tr><td>Sensor de temperatura</td><td>Medição da temperatura</td></tr>
+        <tr><td>Outros componentes</td><td>Funcionalidades adicionais que se revelem viáveis</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Lista Preliminar de Material</h3>
+    <table>
+      <thead>
+        <tr><th>Componente</th><th>Quantidade</th><th>Utilização</th><th>Estado</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>ESP32</td><td>1</td><td>Unidade principal de controlo</td><td>Adquirido</td></tr>
+        <tr><td>Chassis 2WD</td><td>1</td><td>Estrutura física do veículo</td><td>Adquirido</td></tr>
+        <tr><td>Motores DC</td><td>2</td><td>Movimento do veículo</td><td>Incluídos no chassis</td></tr>
+        <tr><td>Rodas</td><td>2</td><td>Deslocação do veículo</td><td>Incluídas no chassis</td></tr>
+        <tr><td>Discos encoder</td><td>2</td><td>Medição da rotação das rodas</td><td>Incluídos no chassis</td></tr>
+        <tr><td>TB6612FNG</td><td>1</td><td>Controlo dos dois motores DC</td><td>Adquirido</td></tr>
+        <tr><td>HC-SR04</td><td>1</td><td>Medição da distância a obstáculos</td><td>Adquirido</td></tr>
+        <tr><td>Módulos de sensor ótico com LM393</td><td>2</td><td>Leitura dos discos encoder</td><td>Adquiridos</td></tr>
+        <tr><td>Breadboard</td><td>1</td><td>Montagem e teste dos circuitos</td><td>Incluída no kit ESP32</td></tr>
+        <tr><td>Cabos Dupont</td><td>Vários</td><td>Ligações elétricas entre componentes</td><td>Incluídos no kit ESP32</td></tr>
+        <tr><td>LEDs</td><td>Vários</td><td>Iluminação e sinalização</td><td>Incluídos no kit ESP32</td></tr>
+        <tr><td>Resistências</td><td>Várias</td><td>Proteção e adaptação dos circuitos</td><td>Incluídas no kit ESP32</td></tr>
+        <tr><td>Buzzer</td><td>1</td><td>Simulação da buzina</td><td>Incluído no kit ESP32</td></tr>
+        <tr><td>Sensor de luminosidade</td><td>1</td><td>Deteção da luz ambiente</td><td>Incluído no kit ESP32</td></tr>
+        <tr><td>Sensor de temperatura</td><td>1</td><td>Medição da temperatura</td><td>Incluído no kit ESP32</td></tr>
+        <tr><td>Suporte para 4 pilhas AA</td><td>1</td><td>Alimentação dos motores</td><td>Incluído no chassis</td></tr>
+        <tr><td>Pilhas AA</td><td>4</td><td>Alimentação dos motores</td><td>A adquirir</td></tr>
+        <tr><td>Componentes para adaptação de tensão do HC-SR04</td><td>A definir</td><td>Proteção da entrada do ESP32</td><td>A adquirir / definir</td></tr>
+        <tr><td>Sistema de alimentação final do ESP32</td><td>A definir</td><td>Alimentação autónoma do microcontrolador</td><td>A definir</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Software e Tecnologias</h3>
+    <table>
+      <thead>
+        <tr><th>Software / Tecnologia</th><th>Utilização</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Arduino IDE</td><td>Programação do ESP32</td></tr>
+        <tr><td>Wokwi</td><td>Simulação e testes de circuitos quando necessário</td></tr>
+        <tr><td>Git</td><td>Controlo de versões</td></tr>
+        <tr><td>GitHub</td><td>Repositório do projeto e documentação</td></tr>
+        <tr><td>HTML</td><td>Estrutura do dashboard</td></tr>
+        <tr><td>CSS</td><td>Aspeto visual do dashboard</td></tr>
+        <tr><td>JavaScript</td><td>Comportamento e interação do dashboard</td></tr>
+        <tr><td>API REST</td><td>Comunicação entre o ESP32 e o servidor</td></tr>
+        <tr><td>MySQL</td><td>Armazenamento dos dados recolhidos</td></tr>
+        <tr><td>Backend / Servidor Web</td><td>Receção, processamento e disponibilização dos dados</td></tr>
+      </tbody>
+    </table>
+
+    <h2>11. Artefacto Físico</h2>
+
+    <p>O artefacto físico do projeto será um pequeno veículo de duas rodas motrizes, construído sobre um chassis 2WD.</p>
+    <p>O ESP32 será instalado no veículo e funcionará como unidade principal de controlo. Este receberá informação dos sensores e controlará os motores e os diferentes atuadores.</p>
+    <p>Na parte frontal do veículo será instalado um sensor ultrassónico HC-SR04 para medir a distância a obstáculos.</p>
+    <p>Junto às rodas serão utilizados discos encoder e sensores óticos LM393, permitindo contar as rotações das rodas e calcular valores como velocidade e distância percorrida.</p>
+    <p>Depois de o núcleo funcional do veículo estar concluído, poderão ser adicionados LEDs para representar os sistemas de iluminação e um buzzer para representar a buzina, bem como outros componentes complementares.</p>
+
+    <pre>                 FRENTE DO VEÍCULO
+
+                 [ HC-SR04 ]
+                      │
+                      │
+              ┌───────────────┐
+              │     ESP32     │
+              │               │
+              │   TB6612FNG   │
+              └───────────────┘
+
+       Sensor Ótico          Sensor Ótico
+          LM393                 LM393
+            │                     │
+       Disco Encoder         Disco Encoder
+            │                     │
+         Motor E               Motor D
+            │                     │
+          Roda E                Roda D
+
+               [ Alimentação ]
+
+                 TRASEIRA
+
+Componentes complementares:
+LEDs, buzzer, sensor de luminosidade,
+sensor de temperatura e outros extras.</pre>
+
+    <p>Esta disposição é apenas uma representação preliminar. A posição final dos componentes poderá ser alterada durante a montagem, dependendo do espaço disponível no chassis e das necessidades do protótipo.</p>
+
+    <h2>12. Planeamento e Calendarização</h2>
+
+    <p>O desenvolvimento do SmartVehicle será realizado de forma incremental. Cada fase deverá produzir uma parte funcional do sistema antes de avançar para a integração seguinte.</p>
+
+    <table>
+      <thead>
+        <tr><th>Data / Período</th><th>Atividade / Entrega</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>27/10/2026</td><td>Proposta inicial do projeto e apresentação</td></tr>
+        <tr><td>28/10 a 13/11/2026</td><td>Definição dos requisitos funcionais e não funcionais</td></tr>
+        <tr><td>14/11/2026</td><td>Definição das funcionalidades, sensores e atuadores da componente IoT</td></tr>
+        <tr><td>Novembro</td><td>Testes individuais de ESP32, motores, sensores e atuadores</td></tr>
+        <tr><td>Novembro</td><td>Montagem do chassis e implementação do movimento básico</td></tr>
+        <tr><td>30/11/2026</td><td>Primeiro protótipo funcional integrando hardware e software</td></tr>
+        <tr><td>Dezembro</td><td>Implementação da comunicação Wi-Fi, servidor Web, API REST e MySQL</td></tr>
+        <tr><td>Dezembro</td><td>Desenvolvimento inicial do dashboard e recolha de telemetria</td></tr>
+        <tr><td>18/12/2026</td><td>Planeamento preliminar da componente de Inteligência Artificial</td></tr>
+        <tr><td>Início de janeiro de 2027</td><td>Estrutura da base de dados e protocolo REST</td></tr>
+        <tr><td>Janeiro</td><td>Integração de sensores, dashboard, servidor e armazenamento de dados</td></tr>
+        <tr><td>Janeiro</td><td>Recolha e preparação de dados para Inteligência Artificial</td></tr>
+        <tr><td>15/01/2027*</td><td>Plano e validação de testes</td></tr>
+        <tr><td>29/01/2027</td><td>Conclusão da componente de Inteligência Artificial</td></tr>
+        <tr><td>Segunda metade de janeiro</td><td>Integração final, correções, vídeo técnico, poster e vídeo promocional</td></tr>
+        <tr><td>01/02/2027</td><td>Entrega final e apresentação em Computação Física e IoT</td></tr>
+        <tr><td>02/02/2027</td><td>Apresentação final em Sistemas Distribuídos</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Gráfico de Gantt</h3>
+    <pre>gantt
+    title Planeamento do Projeto SmartVehicle
+    dateFormat  YYYY-MM-DD
+    axisFormat  %d/%m
+
+    section Milestone 1
+    Proposta inicial                     :2026-10-20, 2026-10-27
+
+    section Engenharia de Software
+    Requisitos                           :2026-10-28, 2026-11-13
+
+    section IoT e Hardware
+    Funcionalidades e sensores           :2026-10-28, 2026-11-14
+    Testes individuais                   :2026-10-28, 2026-11-15
+    Montagem do veículo base             :2026-11-05, 2026-11-22
+    Protótipo hardware/software          :2026-11-15, 2026-11-30
+
+    section Sistemas Distribuídos
+    Wi-Fi e API REST                     :2026-12-01, 2026-12-20
+    Servidor Web e MySQL                 :2026-12-01, 2027-01-09
+    Dashboard e integração               :2026-12-10, 2027-01-15
+
+    section Inteligência Artificial
+    Planeamento do modelo                :2026-12-10, 2026-12-18
+    Recolha e preparação de dados        :2026-12-15, 2027-01-17
+    Desenvolvimento da componente IA     :2027-01-04, 2027-01-29
+
+    section Testes
+    Testes e validação                   :2026-12-15, 2027-01-15
+
+    section Entrega Final
+    Integração e correções               :2027-01-10, 2027-01-31
+    Vídeo técnico e poster               :2027-01-18, 2027-01-31
+    Entrega e apresentações              :2027-02-01, 2027-02-02</pre>
+
+    <h3>Fases de Desenvolvimento</h3>
+    <ol>
+      <li><strong>Planeamento e investigação</strong> – Definição do problema, funcionalidades, requisitos, arquitetura e componentes necessários.</li>
+      <li><strong>Aprendizagem e testes individuais</strong> – Teste do ESP32 e de cada sensor ou atuador separadamente antes da montagem no veículo.</li>
+      <li><strong>Construção do veículo base</strong> – Montagem do chassis, motores e controlador dos motores, permitindo avançar, recuar, virar e parar.</li>
+      <li><strong>Integração de sensores e sistemas do veículo</strong> – Adição do sensor de obstáculos, encoders, iluminação, buzina e outros componentes.</li>
+      <li><strong>Comunicação e armazenamento de dados</strong> – Ligação do ESP32 através de Wi‑Fi ao servidor, utilização da API REST e armazenamento dos dados em MySQL.</li>
+      <li><strong>Dashboard digital</strong> – Desenvolvimento da interface para controlo do veículo e visualização dos dados.</li>
+      <li><strong>Inteligência Artificial</strong> – Preparação dos dados e desenvolvimento da componente analítica ou preditiva.</li>
+      <li><strong>Integração e testes finais</strong> – Integração de todos os componentes, realização dos testes definidos e correção dos problemas encontrados.</li>
+    </ol>
+
+    <h2>13. Distribuição de Tarefas</h2>
+
+    <p>A distribuição de tarefas será feita de forma colaborativa, procurando que todos os elementos participem no desenvolvimento e compreendam as diferentes partes do projeto.</p>
+
+    <table>
+      <thead>
+        <tr><th>Elemento</th><th>Responsabilidades Principais</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>[Nome do elemento 1]</td><td>Planeamento do projeto, documentação, apoio à arquitetura e integração geral</td></tr>
+        <tr><td>[Nome do elemento 2]</td><td>Programação do ESP32, sensores e atuadores</td></tr>
+        <tr><td>[Nome do elemento 3]</td><td>Backend, API REST e base de dados MySQL</td></tr>
+        <tr><td>[Nome do elemento 4]</td><td>Dashboard, testes e apoio à componente de Inteligência Artificial</td></tr>
+      </tbody>
+    </table>
+
+    <p>Apesar desta divisão inicial, algumas tarefas serão realizadas em conjunto, principalmente:</p>
+    <ul>
+      <li>montagem e testes do protótipo físico;</li>
+      <li>integração entre hardware e software;</li>
+      <li>testes do sistema;</li>
+      <li>documentação;</li>
+      <li>preparação das apresentações;</li>
+      <li>resolução de problemas durante o desenvolvimento.</li>
+    </ul>
+
+    <h2>14. Riscos do Projeto</h2>
+
+    <table>
+      <thead>
+        <tr><th>Risco</th><th>Impacto Possível</th><th>Medida de Mitigação</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Atraso na chegada de componentes</td><td>Pode atrasar a montagem do protótipo</td><td>Utilizar Wokwi e testar antecipadamente o software sempre que possível</td></tr>
+        <tr><td>Dificuldades na programação do ESP32</td><td>Pode atrasar a implementação das funcionalidades</td><td>Desenvolver e testar cada funcionalidade separadamente</td></tr>
+        <tr><td>Problemas de ligação entre componentes</td><td>Sensores, motores ou atuadores podem não funcionar corretamente</td><td>Testar individualmente cada componente antes da integração</td></tr>
+        <tr><td>Problemas de alimentação elétrica</td><td>Pode causar funcionamento instável ou danificar componentes</td><td>Confirmar tensões e ligações antes de alimentar o circuito</td></tr>
+        <tr><td>Problemas na comunicação Wi‑Fi</td><td>Pode impedir a transmissão de dados e comandos</td><td>Testar primeiro a comunicação de forma simples antes de integrar o sistema completo</td></tr>
+        <tr><td>Dificuldades na integração entre ESP32, servidor, base de dados e dashboard</td><td>Pode provocar atrasos na fase de integração</td><td>Desenvolver e validar cada parte separadamente antes da integração final</td></tr>
+        <tr><td>Excesso de funcionalidades</td><td>Pode tornar o projeto demasiado complexo para o tempo disponível</td><td>Dar prioridade às funcionalidades essenciais e implementar extras apenas se existir tempo</td></tr>
+        <tr><td>Complexidade da componente de Inteligência Artificial</td><td>Pode dificultar a conclusão da integração final</td><td>Definir uma solução simples e adequada aos dados disponíveis</td></tr>
+        <tr><td>Falta de tempo para testes finais</td><td>Pode deixar erros por corrigir</td><td>Realizar testes ao longo de todo o desenvolvimento e não apenas no final</td></tr>
+      </tbody>
+    </table>
+
+    <p>Para reduzir estes riscos, o projeto será desenvolvido de forma incremental. Cada componente deverá ser testado individualmente antes de ser integrado no sistema completo.</p>
+    <p>As funcionalidades essenciais terão prioridade sobre funcionalidades adicionais. Desta forma, pretende-se garantir primeiro um protótipo funcional e só depois acrescentar novas capacidades.</p>
+
+    <h2>15. Conclusão</h2>
+
+    <p>O SmartVehicle pretende integrar, num único projeto, diferentes áreas da Engenharia Informática através do desenvolvimento de um pequeno veículo inteligente conectado.</p>
+    <p>O projeto combina hardware, sensores, atuadores, programação, comunicação através de Wi‑Fi, armazenamento de dados, desenvolvimento de software e Inteligência Artificial.</p>
+    <p>A solução será desenvolvida de forma progressiva, começando pelas funcionalidades essenciais do veículo e evoluindo posteriormente para a comunicação com o servidor, armazenamento em base de dados e desenvolvimento do dashboard.</p>
+    <p>Nesta fase inicial foram definidos o conceito do projeto, os principais objetivos, a arquitetura preliminar, as tecnologias previstas, o artefacto físico e o plano de desenvolvimento.</p>
+    <p>As próximas fases serão dedicadas à implementação e teste dos diferentes componentes, procurando garantir primeiro um protótipo simples e funcional antes da introdução de funcionalidades adicionais.</p>
+  </div>
+</body>
+</html>
