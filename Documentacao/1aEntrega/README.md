@@ -535,10 +535,10 @@ Nesta fase, a distribuição preliminar é a seguinte:
 
 | Elemento | Responsabilidades Principais |
 |---|---|
-| Elemento 1 | Planeamento do projeto, documentação, apoio à arquitetura e integração geral |
-| Elemento 2 | Programação do ESP32, sensores e atuadores |
-| Elemento 3 | Backend, API REST e base de dados MySQL |
-| Elemento 4 | Dashboard, testes e apoio à componente de Inteligência Artificial |
+| [Nome do elemento 1] | Planeamento do projeto, documentação, apoio à arquitetura e integração geral |
+| [Nome do elemento 2] | Programação do ESP32, sensores e atuadores |
+| [Nome do elemento 3] | Backend, API REST e base de dados MySQL |
+| [Nome do elemento 4] | Dashboard, testes e apoio à componente de Inteligência Artificial |
 
 Apesar desta divisão inicial, algumas tarefas serão realizadas em conjunto, principalmente:
 
