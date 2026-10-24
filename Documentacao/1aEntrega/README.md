@@ -95,6 +95,72 @@ O SmartVehicle não pretende ser um produto comercial, mas sim uma plataforma de
 
 ## 6. Guiões de Teste
 
+### Guião de Teste 1 – Controlo do Movimento
+
+**Objetivo:**  
+Verificar se o utilizador consegue controlar corretamente o movimento do SmartVehicle através do dashboard.
+
+**Passos:**
+
+1. Ligar o SmartVehicle.
+2. Abrir o dashboard digital.
+3. Confirmar que existe comunicação com o veículo.
+4. Selecionar o comando para avançar.
+5. Confirmar que o veículo se desloca para a frente.
+6. Selecionar o comando para virar à esquerda.
+7. Confirmar que o veículo altera a direção.
+8. Selecionar o comando para virar à direita.
+9. Confirmar que o veículo altera a direção.
+10. Selecionar o comando para parar.
+11. Confirmar que o veículo fica imobilizado.
+
+**Resultado esperado:**  
+O veículo deverá responder corretamente aos comandos enviados através do dashboard.
+
+---
+
+### Guião de Teste 2 – Deteção de Obstáculos
+
+**Objetivo:**  
+Verificar se o SmartVehicle consegue detetar um obstáculo à sua frente e impedir uma aproximação considerada insegura.
+
+**Passos:**
+
+1. Ligar o SmartVehicle.
+2. Colocar um obstáculo à frente do veículo.
+3. Colocar o veículo em movimento para a frente.
+4. Confirmar que o sensor frontal mede a distância ao obstáculo.
+5. Confirmar que essa distância é apresentada no dashboard.
+6. Aproximar o veículo do obstáculo.
+7. Verificar se o sistema identifica quando a distância fica abaixo do limite de segurança.
+8. Confirmar que o veículo deixa de avançar.
+
+**Resultado esperado:**  
+O sistema deverá detetar o obstáculo, apresentar a distância no dashboard e impedir o avanço quando a distância for considerada insegura.
+
+---
+
+### Guião de Teste 3 – Iluminação do Veículo
+
+**Objetivo:**  
+Verificar se os sistemas de iluminação respondem aos comandos do utilizador.
+
+**Passos:**
+
+1. Ligar o SmartVehicle.
+2. Abrir o dashboard.
+3. Ativar os faróis.
+4. Confirmar que os LEDs correspondentes aos faróis acendem.
+5. Ativar o pisca esquerdo.
+6. Confirmar que o indicador luminoso esquerdo pisca.
+7. Desativar o pisca esquerdo.
+8. Ativar o pisca direito.
+9. Confirmar que o indicador luminoso direito pisca.
+10. Desligar os sistemas de iluminação.
+
+**Resultado esperado:**  
+As luzes deverão responder corretamente aos comandos enviados pelo utilizador.
+
 ## 7. Enquadramento nas Unidades Curriculares
 
 ## 8. Requisitos Técnicos e Tecnologias
