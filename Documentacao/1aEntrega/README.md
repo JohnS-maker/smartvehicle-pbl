@@ -464,4 +464,22 @@ A distribuição poderá ser ajustada ao longo do projeto, dependendo da evoluç
 
 ## 14. Riscos do Projeto
 
+Durante o desenvolvimento do SmartVehicle poderão surgir dificuldades técnicas e de organização. Os principais riscos identificados nesta fase são os seguintes:
+
+| Risco | Impacto Possível | Medida de Mitigação |
+|---|---|---|
+| Atraso na chegada de componentes | Pode atrasar a montagem do protótipo | Utilizar Wokwi e testar antecipadamente o software sempre que possível |
+| Dificuldades na programação do ESP32 | Pode atrasar a implementação das funcionalidades | Desenvolver e testar cada funcionalidade separadamente |
+| Problemas de ligação entre componentes | Sensores, motores ou atuadores podem não funcionar corretamente | Testar individualmente cada componente antes da integração |
+| Problemas de alimentação elétrica | Pode causar funcionamento instável ou danificar componentes | Confirmar tensões e ligações antes de alimentar o circuito |
+| Problemas na comunicação Wi-Fi | Pode impedir a transmissão de dados e comandos | Testar primeiro a comunicação de forma simples antes de integrar o sistema completo |
+| Dificuldades na integração entre ESP32, servidor, base de dados e dashboard | Pode provocar atrasos na fase de integração | Desenvolver e validar cada parte separadamente antes da integração final |
+| Excesso de funcionalidades | Pode tornar o projeto demasiado complexo para o tempo disponível | Dar prioridade às funcionalidades essenciais e implementar extras apenas se existir tempo |
+| Complexidade da componente de Inteligência Artificial | Pode dificultar a conclusão da integração final | Definir uma solução simples e adequada aos dados disponíveis |
+| Falta de tempo para testes finais | Pode deixar erros por corrigir | Realizar testes ao longo de todo o desenvolvimento e não apenas no final |
+
+Para reduzir estes riscos, o projeto será desenvolvido de forma incremental. Cada componente deverá ser testado individualmente antes de ser integrado no sistema completo.
+
+As funcionalidades essenciais terão prioridade sobre funcionalidades adicionais. Desta forma, pretende-se garantir primeiro um protótipo funcional e só depois acrescentar novas capacidades.
+
 ## 15. Conclusão
