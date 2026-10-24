@@ -440,6 +440,28 @@ O projeto será dividido nas seguintes fases:
 
 ## 13. Distribuição de Tarefas
 
+A distribuição de tarefas será feita de forma colaborativa, procurando que todos os elementos participem no desenvolvimento e compreendam as diferentes partes do projeto.
+
+Nesta fase, a distribuição preliminar é a seguinte:
+
+| Elemento | Responsabilidades Principais |
+|---|---|
+| Elemento 1 | Planeamento do projeto, documentação, apoio à arquitetura e integração geral |
+| Elemento 2 | Programação do ESP32, sensores e atuadores |
+| Elemento 3 | Backend, API REST e base de dados MySQL |
+| Elemento 4 | Dashboard, testes e apoio à componente de Inteligência Artificial |
+
+Apesar desta divisão inicial, algumas tarefas serão realizadas em conjunto, principalmente:
+
+- montagem e testes do protótipo físico;
+- integração entre hardware e software;
+- testes do sistema;
+- documentação;
+- preparação das apresentações;
+- resolução de problemas durante o desenvolvimento.
+
+A distribuição poderá ser ajustada ao longo do projeto, dependendo da evolução do trabalho, das dificuldades encontradas e da disponibilidade dos elementos do grupo.
+
 ## 14. Riscos do Projeto
 
 ## 15. Conclusão
