@@ -98,6 +98,24 @@ Esta componente utilizará os dados recolhidos pelos sensores do SmartVehicle, j
 
 A funcionalidade concreta da componente de Inteligência Artificial será definida numa fase posterior do projeto, de acordo com os conteúdos e requisitos da respetiva Unidade Curricular.
 
+#### Hipótese Preliminar
+
+Como hipótese inicial, pretende-se estudar uma componente de Inteligência Artificial capaz de analisar ou estimar o risco de aproximação a obstáculos.
+
+O modelo poderá utilizar dados recolhidos pelo SmartVehicle, como:
+
+- distância ao obstáculo;
+- velocidade estimada;
+- evolução destes valores ao longo do tempo.
+
+Estes dados deverão ser combinados com pelo menos uma fonte adicional, como um conjunto de dados público ou valores de referência relacionados com distância de segurança, velocidade ou travagem.
+
+O objetivo poderá ser classificar diferentes situações, por exemplo como risco baixo, moderado ou elevado, ou estimar a necessidade de intervenção.
+
+Esta componente terá uma função analítica ou preditiva e não substituirá o mecanismo de segurança local do ESP32. O bloqueio imediato do movimento perante um obstáculo continuará a funcionar diretamente no veículo.
+
+A solução final de Inteligência Artificial e a fonte de dados adicional serão validadas posteriormente no âmbito da respetiva Unidade Curricular.
+
 ## 5. Público-Alvo
 
 O SmartVehicle é principalmente um projeto académico e demonstrativo.
