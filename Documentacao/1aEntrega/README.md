@@ -163,6 +163,50 @@ As luzes deverão responder corretamente aos comandos enviados pelo utilizador.
 
 ## 7. Enquadramento nas Unidades Curriculares
 
+O SmartVehicle integra conteúdos das quatro Unidades Curriculares envolvidas no PBL.
+
+### Sistemas Distribuídos
+
+Nesta Unidade Curricular será trabalhada a arquitetura que permite a comunicação entre os diferentes componentes do sistema.
+
+O SmartVehicle deverá enviar dados através de Wi-Fi para um servidor, permitindo posteriormente a sua utilização por outros componentes da solução, como o dashboard, a base de dados e a componente de Inteligência Artificial.
+
+Será também trabalhado o planeamento e a gestão do projeto.
+
+### Computação Física e IoT
+
+Esta Unidade Curricular estará diretamente relacionada com o desenvolvimento do veículo físico.
+
+Serão trabalhados:
+
+- programação do ESP32;
+- utilização de sensores;
+- utilização de atuadores;
+- controlo dos motores;
+- recolha de dados;
+- comunicação através de Wi-Fi;
+- envio dos dados recolhidos para o servidor.
+
+### Engenharia de Software
+
+Nesta Unidade Curricular serão definidos e especificados os requisitos do sistema.
+
+Serão também trabalhados:
+
+- requisitos funcionais;
+- requisitos não funcionais;
+- modelação da solução;
+- testes;
+- validação do sistema.
+
+### Inteligência Artificial
+
+Nesta Unidade Curricular serão utilizados os dados recolhidos pelo SmartVehicle para desenvolver uma componente analítica ou preditiva.
+
+Os dados provenientes dos sensores deverão ser combinados com pelo menos uma fonte adicional de dados.
+
+A componente de Inteligência Artificial será definida e desenvolvida numa fase posterior, de acordo com os requisitos e conteúdos da UC.
+
 ## 8. Requisitos Técnicos e Tecnologias
 
 ## 9. Arquitetura da Solução
