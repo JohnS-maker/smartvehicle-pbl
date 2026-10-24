@@ -348,6 +348,47 @@ As tecnologias específicas utilizadas no backend e na componente de Inteligênc
 
 ## 11. Artefacto Físico
 
+O artefacto físico do projeto será um pequeno veículo de duas rodas motrizes, construído sobre um chassis 2WD.
+
+O ESP32 será instalado no veículo e funcionará como unidade principal de controlo. Este receberá informação dos sensores e controlará os motores e os diferentes atuadores.
+
+Na parte frontal do veículo será instalado um sensor ultrassónico HC-SR04 para medir a distância a obstáculos.
+
+Junto às rodas serão utilizados discos encoder e sensores óticos LM393, permitindo contar as rotações das rodas e calcular valores como velocidade e distância percorrida.
+
+Serão também instalados LEDs para representar os sistemas de iluminação do veículo e um buzzer para representar a buzina.
+
+A disposição preliminar dos componentes será semelhante à seguinte:
+
+```
+                 FRENTE DO VEÍCULO
+
+                 [ HC-SR04 ]
+                     │
+        [LED]                    [LED]
+       Farol E                  Farol D
+
+              ┌─────────────┐
+              │    ESP32    │
+              │             │
+              │  TB6612FNG  │
+              └─────────────┘
+
+       Sensor LM393        Sensor LM393
+             │                  │
+        Encoder E           Encoder D
+             │                  │
+          Motor E            Motor D
+
+              [ Alimentação ]
+
+                 TRASEIRA
+```
+
+Esta disposição é apenas uma representação preliminar. A posição final dos componentes poderá ser alterada durante a montagem, dependendo do espaço disponível no chassis e das necessidades das ligações elétricas.
+
+O desenvolvimento físico será realizado de forma progressiva. Inicialmente serão testados separadamente o ESP32, LEDs, sensores e motores. Posteriormente, os componentes serão integrados no chassis até formar o protótipo completo.
+
 ## 12. Planeamento e Calendarização
 
 ## 13. Distribuição de Tarefas
