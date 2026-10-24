@@ -414,29 +414,34 @@ Depois de o núcleo funcional do veículo estar concluído, poderão ser adicion
 
 A disposição preliminar dos componentes será semelhante à seguinte:
 
-```
+```text
                  FRENTE DO VEÍCULO
 
                  [ HC-SR04 ]
-                     │
-        [LED]                    [LED]
-       Farol E                  Farol D
+                      │
+                      │
+              ┌───────────────┐
+              │     ESP32     │
+              │               │
+              │   TB6612FNG   │
+              └───────────────┘
 
-              ┌─────────────┐
-              │    ESP32    │
-              │             │
-              │  TB6612FNG  │
-              └─────────────┘
+       Sensor Ótico          Sensor Ótico
+          LM393                 LM393
+            │                     │
+       Disco Encoder         Disco Encoder
+            │                     │
+         Motor E               Motor D
+            │                     │
+          Roda E                Roda D
 
-       Sensor LM393        Sensor LM393
-             │                  │
-        Encoder E           Encoder D
-             │                  │
-          Motor E            Motor D
-
-              [ Alimentação ]
+               [ Alimentação ]
 
                  TRASEIRA
+
+Componentes complementares:
+LEDs, buzzer, sensor de luminosidade,
+sensor de temperatura e outros extras.
 ```
 
 Esta disposição é apenas uma representação preliminar. A posição final dos componentes poderá ser alterada durante a montagem, dependendo do espaço disponível no chassis e das necessidades das ligações elétricas.
