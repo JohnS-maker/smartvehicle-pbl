@@ -349,9 +349,9 @@ Esta arquitetura é preliminar e poderá ser ajustada durante o desenvolvimento 
 
 ## 10. Hardware e Software
 
-### Hardware
+### Hardware Essencial
 
-O hardware previsto para o desenvolvimento do SmartVehicle é constituído por componentes de baixo custo, adequados a prototipagem e compatíveis com o ESP32.
+Os componentes essenciais são os necessários para construir e testar o núcleo funcional do SmartVehicle.
 
 | Componente | Função no Projeto |
 |---|---|
@@ -360,19 +360,25 @@ O hardware previsto para o desenvolvimento do SmartVehicle é constituído por c
 | 2 Motores DC | Movimento do veículo |
 | TB6612FNG | Controlo dos motores |
 | HC-SR04 | Medição da distância a obstáculos |
-| 2 Sensores LM393 | Leitura dos discos encoder |
-| Discos Encoder | Permitir medir a rotação das rodas |
-| LEDs | Representação de faróis, piscas e outras luzes |
-| Buzzer | Representação da buzina |
-| Sensor de luminosidade | Deteção da luz ambiente |
-| Sensor de temperatura | Medição da temperatura |
+| 2 módulos de sensor ótico de velocidade com LM393 | Leitura dos discos encoder |
+| Discos Encoder | Permitem medir a rotação das rodas |
 | Breadboard | Montagem e teste dos circuitos |
 | Cabos de ligação | Ligação entre os diferentes componentes |
-| Suporte para pilhas/bateria | Alimentação do sistema físico |
+| Sistema de alimentação | Alimentação dos motores e dos restantes componentes |
 
-Alguns componentes adicionais poderão ser introduzidos mais tarde, caso sejam necessários para implementar funcionalidades opcionais, como RFID, climatização simulada ou monitorização mais detalhada da bateria.
+### Hardware Complementar
 
-### Software
+Depois de o núcleo principal estar funcional, poderão ser utilizados outros componentes para adicionar novas funcionalidades:
+
+| Componente | Função Prevista |
+|---|---|
+| LEDs | Faróis, piscas e outras luzes do veículo |
+| Buzzer | Simulação da buzina |
+| Sensor de luminosidade | Deteção da luz ambiente |
+| Sensor de temperatura | Medição da temperatura |
+| Outros componentes | Funcionalidades adicionais que se revelem viáveis |
+
+### Software e Tecnologias
 
 Durante o desenvolvimento prevê-se utilizar:
 
