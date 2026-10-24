@@ -209,6 +209,53 @@ A componente de Inteligência Artificial será definida e desenvolvida numa fase
 
 ## 8. Requisitos Técnicos e Tecnologias
 
+Nesta fase do projeto, os requisitos técnicos e as tecnologias ainda são preliminares e poderão ser ajustados durante o desenvolvimento.
+
+### Requisitos Técnicos
+
+O sistema deverá:
+
+- utilizar um microcontrolador ESP32;
+- permitir a ligação de sensores e atuadores;
+- controlar dois motores DC;
+- recolher dados dos sensores;
+- comunicar através de Wi-Fi;
+- enviar os dados recolhidos para um servidor;
+- utilizar comunicação REST para envio e receção de informação;
+- armazenar informação numa base de dados MySQL;
+- disponibilizar os dados ao dashboard;
+- permitir o envio de comandos do dashboard para o veículo;
+- utilizar os dados recolhidos numa componente de Inteligência Artificial.
+
+### Tecnologias Preliminares
+
+**Hardware:**
+- ESP32;
+- chassis 2WD;
+- motores DC;
+- controlador de motores TB6612FNG;
+- sensor ultrassónico HC-SR04;
+- sensores óticos LM393;
+- discos encoder;
+- LEDs;
+- buzzer;
+- sensor de luminosidade;
+- sensor de temperatura.
+
+**Software e Ferramentas:**
+- Arduino IDE;
+- Wokwi;
+- Git;
+- GitHub;
+- HTML;
+- CSS;
+- JavaScript;
+- servidor Web / backend;
+- API REST;
+- MySQL.
+
+As tecnologias específicas para o backend e para a componente de Inteligência Artificial serão definidas posteriormente.
+
 ## 9. Arquitetura da Solução
 
 ## 10. Hardware e Software
