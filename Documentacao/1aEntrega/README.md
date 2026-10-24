@@ -232,52 +232,54 @@ A componente de Inteligência Artificial será definida e desenvolvida numa fase
 
 ## 8. Requisitos Técnicos e Tecnologias
 
-Nesta fase do projeto, os requisitos técnicos e as tecnologias ainda são preliminares e poderão ser ajustados durante o desenvolvimento.
+Nesta fase do projeto, os requisitos técnicos principais estão definidos, enquanto algumas tecnologias e decisões de implementação permanecem provisórias e poderão ser ajustadas durante o desenvolvimento.
 
-### Requisitos Técnicos
+### Requisitos Técnicos Principais
 
 O sistema deverá:
 
 - utilizar um microcontrolador ESP32;
-- permitir a ligação de sensores e atuadores;
-- controlar dois motores DC;
+- integrar sensores e atuadores;
+- controlar os dois motores DC do veículo;
 - recolher dados dos sensores;
 - comunicar através de Wi-Fi;
-- enviar os dados recolhidos para um servidor;
-- utilizar comunicação REST para envio e receção de informação;
+- enviar os dados recolhidos para um servidor Web;
+- utilizar uma API REST para a transmissão dos dados;
 - armazenar informação numa base de dados MySQL;
-- disponibilizar os dados ao dashboard;
-- permitir o envio de comandos do dashboard para o veículo;
-- utilizar os dados recolhidos numa componente de Inteligência Artificial.
+- disponibilizar os dados recolhidos ao dashboard;
+- permitir ao utilizador enviar comandos para controlar o veículo;
+- incluir uma componente de Inteligência Artificial baseada nos dados recolhidos pelos sensores e em pelo menos uma fonte de dados adicional.
 
-### Tecnologias Preliminares
+### Tecnologias Previstas
 
-**Hardware:**
+**Hardware principal:**
 - ESP32;
 - chassis 2WD;
 - motores DC;
 - controlador de motores TB6612FNG;
 - sensor ultrassónico HC-SR04;
-- sensores óticos LM393;
-- discos encoder;
+- módulos de sensor ótico de velocidade com LM393;
+- discos encoder.
+
+**Hardware complementar:**
 - LEDs;
 - buzzer;
 - sensor de luminosidade;
-- sensor de temperatura.
+- sensor de temperatura;
+- outros componentes que se revelem necessários.
 
-**Software e Ferramentas:**
+**Software e ferramentas:**
 - Arduino IDE;
 - Wokwi;
 - Git;
 - GitHub;
-- HTML;
-- CSS;
-- JavaScript;
-- servidor Web / backend;
+- MySQL;
 - API REST;
-- MySQL.
+- tecnologias Web para desenvolvimento do dashboard.
 
-As tecnologias específicas para o backend e para a componente de Inteligência Artificial serão definidas posteriormente.
+A tecnologia utilizada para implementar o backend, o mecanismo final de transmissão dos comandos para o veículo e as ferramentas utilizadas na componente de Inteligência Artificial serão definidos posteriormente.
+
+Estas escolhas serão realizadas de acordo com os requisitos do projeto, a compatibilidade entre os diferentes componentes e a evolução do protótipo.
 
 ## 9. Arquitetura da Solução
 
