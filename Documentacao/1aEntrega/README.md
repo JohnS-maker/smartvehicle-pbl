@@ -13,10 +13,10 @@
 **Grupo: 2**
 
 **Elementos do Grupo:**
-Joao Santos - 50031111;
-Tomas Pereira - 20241740;
-Rui Grosso - 20241591;
-Gonçalo Pereira - 20241565;
+- Joao Santos - 50031111; 
+- Tomas Pereira - 20241740;
+- Rui Grosso - 20241591;
+- Gonçalo Pereira - 20241565;
 
 **Unidades Curriculares envolvidas:**
 - Sistemas Distribuídos
@@ -55,6 +55,23 @@ Outra motivação é trabalhar com dados reais recolhidos pelos sensores do veí
 O projeto também permite desenvolver a solução de forma progressiva, começando por funcionalidades básicas e acrescentando novas capacidades à medida que o desenvolvimento avança.
 
 ## 4. Objetivos
+
+O principal objetivo do SmartVehicle é desenvolver um pequeno veículo conectado, baseado em ESP32, capaz de ser controlado através de um dashboard digital e de recolher dados do seu funcionamento através de sensores.
+
+Como objetivos específicos, pretende-se:
+
+- controlar o movimento do veículo;
+- permitir avançar, recuar, virar e parar;
+- controlar a velocidade dos motores;
+- medir a distância a obstáculos;
+- medir a velocidade das rodas através de encoders;
+- implementar sistemas de iluminação, como faróis e piscas;
+- implementar uma buzina;
+- enviar dados do veículo através de Wi-Fi;
+- armazenar os dados recolhidos num servidor e numa base de dados;
+- apresentar a informação num dashboard digital;
+- utilizar os dados recolhidos numa componente de Inteligência Artificial;
+- desenvolver o projeto de forma modular e progressiva.
 
 ## 5. Público-Alvo
 
