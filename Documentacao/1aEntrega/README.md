@@ -34,7 +34,7 @@ O SmartVehicle é um protótipo de um pequeno veículo inteligente baseado no mi
 
 O objetivo é construir um veículo físico capaz de se movimentar, utilizar sensores e executar algumas funções semelhantes às existentes num automóvel moderno.
 
-O veículo deverá conseguir avançar, recuar, virar e parar. Pretende-se também implementar funcionalidades como faróis, piscas, buzina, medição de velocidade e deteção de obstáculos.
+O veículo deverá conseguir avançar, recuar, virar e parar, medir a sua velocidade e detetar obstáculos à sua frente. Depois de estas funcionalidades essenciais estarem implementadas, poderão ser adicionadas funcionalidades complementares, como faróis, piscas e buzina.
 
 Será desenvolvido um dashboard digital que permitirá controlar o veículo e visualizar informação sobre o seu funcionamento, como velocidade, distância a obstáculos e estado de alguns dos seus sistemas.
 
