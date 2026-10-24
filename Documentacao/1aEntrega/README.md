@@ -483,3 +483,13 @@ Para reduzir estes riscos, o projeto será desenvolvido de forma incremental. Ca
 As funcionalidades essenciais terão prioridade sobre funcionalidades adicionais. Desta forma, pretende-se garantir primeiro um protótipo funcional e só depois acrescentar novas capacidades.
 
 ## 15. Conclusão
+
+O SmartVehicle pretende integrar, num único projeto, diferentes áreas da Engenharia Informática através do desenvolvimento de um pequeno veículo inteligente conectado.
+
+O projeto combina hardware, sensores, atuadores, programação, comunicação através de Wi-Fi, armazenamento de dados, desenvolvimento de software e Inteligência Artificial.
+
+A solução será desenvolvida de forma progressiva, começando pelas funcionalidades essenciais do veículo e evoluindo posteriormente para a comunicação com o servidor, armazenamento em base de dados, dashboard digital e componente de Inteligência Artificial.
+
+Nesta fase inicial foram definidos o conceito do projeto, os principais objetivos, a arquitetura preliminar, as tecnologias previstas, o artefacto físico e o plano de desenvolvimento.
+
+As próximas fases serão dedicadas à implementação e teste dos diferentes componentes, procurando garantir primeiro um protótipo simples e funcional antes da introdução de funcionalidades adicionais.
