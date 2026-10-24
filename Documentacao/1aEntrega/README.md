@@ -26,7 +26,7 @@
 
 **Palavras-chave:** ESP32, IoT, SmartVehicle, sensores, atuadores, telemetria, dashboard digital, sistemas distribuídos, inteligência artificial.
 
-**Repositório GitHub:** **Repositório GitHub:** https://github.com/JohnS-maker/smartvehicle-pbl
+**Repositório GitHub:** https://github.com/JohnS-maker/smartvehicle-pbl
 
 ## 2. Descrição do Projeto
 
