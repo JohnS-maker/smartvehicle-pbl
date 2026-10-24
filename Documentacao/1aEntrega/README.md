@@ -258,49 +258,71 @@ As tecnologias específicas para o backend e para a componente de Inteligência 
 
 ## 9. Arquitetura da Solução
 
-A arquitetura do SmartVehicle será composta por vários elementos que trabalham em conjunto.
+A arquitetura do SmartVehicle será composta por vários componentes que comunicam entre si.
 
-O ESP32 será o componente principal do veículo. Este será responsável por controlar os motores, ler os sensores e ativar os diferentes atuadores.
+O ESP32 será a unidade principal do veículo. Este será responsável pela leitura dos sensores, controlo dos motores e ativação dos diferentes atuadores.
 
-Os dados recolhidos pelo ESP32 serão enviados através de Wi-Fi para um servidor Web.
+A comunicação com o restante sistema será realizada através de Wi-Fi. O ESP32 enviará os dados recolhidos para um servidor Web através de uma API REST.
 
-O servidor será responsável por receber os dados do veículo, processá-los e armazená-los numa base de dados MySQL.
+O servidor será responsável por receber e disponibilizar a informação do veículo e por armazenar os dados numa base de dados MySQL.
 
-O dashboard permitirá visualizar a informação do veículo e enviar comandos para o sistema.
+O dashboard digital permitirá ao utilizador visualizar os dados do veículo e enviar comandos para o sistema.
 
-A componente de Inteligência Artificial utilizará os dados recolhidos e armazenados para realizar análise ou previsão.
+A componente de Inteligência Artificial utilizará dados recolhidos pelos sensores do SmartVehicle em conjunto com pelo menos uma fonte de dados adicional. A fonte adicional será definida posteriormente de acordo com a solução desenvolvida na Unidade Curricular de Inteligência Artificial.
 
 A arquitetura preliminar será:
 
 ```
-Sensores e Atuadores
-        │
-        ▼
-      ESP32
-        │
-      Wi-Fi
-        │
-        ▼
-Servidor Web / API REST
-        │
-        ├────────► Base de Dados MySQL
-        │
-        ├────────► Dashboard Digital
-        │
-        └────────► Inteligência Artificial
+                        ┌──────────────────────┐
+                        │  Dashboard Digital   │
+                        │ controlo + informação│
+                        └──────────┬───────────┘
+                                   │
+                                   │
+                                   ▼
+                        ┌──────────────────────┐
+                        │ Servidor Web /       │
+                        │ API REST             │
+                        └───────┬───────┬──────┘
+                                │       │
+                                │       ▼
+                                │   ┌───────────────┐
+                                │   │ Base de Dados │
+                                │   │     MySQL     │
+                                │   └───────┬───────┘
+                                │           │
+                                │           ▼
+                                │   ┌────────────────┐
+                                │   │ Inteligência   │◄──── Fonte de
+                                │   │ Artificial     │      dados adicional
+                                │   └────────────────┘
+                                │
+                              Wi-Fi
+                                │
+                                ▼
+                        ┌──────────────────────┐
+                        │        ESP32         │
+                        └──────────┬───────────┘
+                                   │
+                          ┌────────┴────────┐
+                          ▼                 ▼
+                     ┌─────────┐       ┌──────────┐
+                     │Sensores │       │Atuadores │
+                     └─────────┘       └──────────┘
 ```
 
-O fluxo de informação principal será:
+### Fluxo principal de dados
 
-1. Os sensores recolhem dados do veículo.
-2. O ESP32 processa os dados.
-3. Os dados são enviados através de Wi-Fi.
-4. O servidor recebe a informação através da API REST.
-5. Os dados são armazenados na base de dados.
-6. O dashboard apresenta a informação ao utilizador.
-7. A componente de Inteligência Artificial utiliza os dados disponíveis para análise ou previsão.
+1. Os sensores recolhem informação do veículo.
+2. O ESP32 recebe e processa os dados dos sensores.
+3. Os dados são enviados através de Wi-Fi para o servidor Web.
+4. O servidor recebe os dados através da API REST.
+5. Os dados são armazenados numa base de dados MySQL.
+6. O dashboard consulta e apresenta a informação ao utilizador.
+7. O utilizador poderá enviar comandos através do dashboard.
+8. A componente de Inteligência Artificial utilizará os dados do veículo juntamente com uma fonte de dados adicional para realizar análise ou previsão.
 
-Esta arquitetura é preliminar e poderá ser ajustada durante o desenvolvimento do projeto.
+Esta arquitetura é preliminar e poderá ser ajustada durante o desenvolvimento e integração do projeto.
 
 ## 10. Hardware e Software
 
