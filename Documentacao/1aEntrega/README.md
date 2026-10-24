@@ -2,8 +2,6 @@
 
 ## 1. Identificação do Projeto
 
-## 1. Identificação do Projeto
-
 **Universidade:** Universidade Europeia  
 **Faculdade/Escola:** IADE – Faculdade de Design, Tecnologia e Comunicação  
 **Curso:** Licenciatura em Engenharia Informática  
@@ -31,6 +29,18 @@ Gonçalo Pereira - 20241565
 **Repositório GitHub:** [colocar aqui o link do repositório]
 
 ## 2. Descrição do Projeto
+
+O SmartVehicle é um protótipo de um pequeno veículo inteligente baseado no microcontrolador ESP32.
+
+O objetivo é construir um veículo físico capaz de se movimentar, utilizar sensores e executar algumas funções semelhantes às existentes num automóvel moderno.
+
+O veículo deverá conseguir avançar, recuar, virar e parar. Pretende-se também implementar funcionalidades como faróis, piscas, buzina, medição de velocidade e deteção de obstáculos.
+
+Será desenvolvido um dashboard digital que permitirá controlar o veículo e visualizar informação sobre o seu funcionamento, como velocidade, distância a obstáculos e estado de alguns dos seus sistemas.
+
+O ESP32 será responsável pelo controlo do veículo e pela recolha de dados dos sensores. Esses dados serão enviados através de Wi-Fi para um servidor, onde poderão ser armazenados numa base de dados e utilizados pelo dashboard e pela componente de Inteligência Artificial.
+
+O projeto será desenvolvido de forma progressiva, começando pelas funções mais simples do veículo e acrescentando posteriormente sensores, comunicação, dashboard e outras funcionalidades.
 
 ## 3. Problema e Motivação
 
