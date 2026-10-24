@@ -75,6 +75,24 @@ Como objetivos específicos, pretende-se:
 
 ## 5. Público-Alvo
 
+O SmartVehicle é principalmente um projeto académico e demonstrativo.
+
+O protótipo destina-se sobretudo a estudantes, docentes e utilizadores interessados em perceber como diferentes áreas da Engenharia Informática podem ser integradas num único sistema.
+
+O projeto permite demonstrar, de forma prática, a ligação entre:
+
+- microcontroladores;
+- sensores e atuadores;
+- Internet of Things;
+- comunicação entre sistemas;
+- armazenamento de dados;
+- desenvolvimento de software;
+- Inteligência Artificial.
+
+O dashboard será a principal interface de utilização do sistema, permitindo controlar o veículo e acompanhar os dados recolhidos pelos sensores.
+
+O SmartVehicle não pretende ser um produto comercial, mas sim uma plataforma de aprendizagem, demonstração e experimentação.
+
 ## 6. Guiões de Teste
 
 ## 7. Enquadramento nas Unidades Curriculares
