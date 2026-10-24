@@ -58,20 +58,43 @@ O projeto também permite desenvolver a solução de forma progressiva, começan
 
 O principal objetivo do SmartVehicle é desenvolver um pequeno veículo conectado, baseado em ESP32, capaz de ser controlado através de um dashboard digital e de recolher dados do seu funcionamento através de sensores.
 
-Como objetivos específicos, pretende-se:
+### Funcionalidades Essenciais – MVP
+
+A primeira prioridade do projeto será desenvolver um protótipo funcional com as seguintes capacidades:
 
 - controlar o movimento do veículo;
 - permitir avançar, recuar, virar e parar;
-- controlar a velocidade dos motores;
+- controlar os dois motores através do ESP32;
 - medir a distância a obstáculos;
-- medir a velocidade das rodas através de encoders;
-- implementar sistemas de iluminação, como faróis e piscas;
-- implementar uma buzina;
-- enviar dados do veículo através de Wi-Fi;
-- armazenar os dados recolhidos num servidor e numa base de dados;
-- apresentar a informação num dashboard digital;
-- utilizar os dados recolhidos numa componente de Inteligência Artificial;
-- desenvolver o projeto de forma modular e progressiva.
+- medir a rotação das rodas e estimar a velocidade;
+- comunicar através de Wi-Fi;
+- enviar dados do veículo para um servidor;
+- armazenar os dados recolhidos numa base de dados MySQL;
+- apresentar informação básica num dashboard digital;
+- permitir o envio de comandos através do dashboard.
+
+Estas funcionalidades constituem o núcleo mínimo do SmartVehicle e terão prioridade durante o desenvolvimento.
+
+### Funcionalidades Complementares
+
+Depois de o núcleo principal estar funcional, poderão ser integradas outras funcionalidades, como:
+
+- faróis;
+- piscas;
+- buzina;
+- deteção da luminosidade ambiente;
+- medição da temperatura;
+- luzes de travagem;
+- luz de marcha-atrás;
+- outras funcionalidades que se revelem viáveis durante o desenvolvimento.
+
+### Inteligência Artificial
+
+O projeto deverá também incluir uma componente de Inteligência Artificial.
+
+Esta componente utilizará os dados recolhidos pelos sensores do SmartVehicle, juntamente com pelo menos uma fonte de dados adicional, para realizar uma função analítica ou preditiva.
+
+A funcionalidade concreta da componente de Inteligência Artificial será definida numa fase posterior do projeto, de acordo com os conteúdos e requisitos da respetiva Unidade Curricular.
 
 ## 5. Público-Alvo
 
