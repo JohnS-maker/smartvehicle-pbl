@@ -391,6 +391,53 @@ O desenvolvimento físico será realizado de forma progressiva. Inicialmente ser
 
 ## 12. Planeamento e Calendarização
 
+O desenvolvimento do SmartVehicle será realizado de forma incremental. Cada fase deverá produzir uma parte funcional do sistema antes de avançar para a integração seguinte.
+
+| Período / Entrega | Trabalho Previsto |
+|---|---|
+| Até 27/10/2026 | Definição da ideia, objetivos, arquitetura preliminar, hardware, software, planeamento e documentação da proposta inicial |
+| Final de outubro / início de novembro | Preparação do ambiente de desenvolvimento e primeiros testes com ESP32 |
+| Novembro | Testes individuais de LEDs, buzzer, sensores, motores e controlador TB6612FNG |
+| Até 13/11/2026 | Definição dos requisitos funcionais e não funcionais para Engenharia de Software |
+| Novembro | Montagem do chassis 2WD e implementação dos movimentos básicos |
+| Novembro | Integração do sensor de obstáculos e sensores de velocidade |
+| Até 30/11/2026 | Desenvolvimento de um primeiro protótipo funcional integrando hardware e software |
+| Dezembro | Desenvolvimento da comunicação Wi-Fi, API REST, servidor e base de dados MySQL |
+| Dezembro / janeiro | Desenvolvimento e integração do dashboard digital |
+| Janeiro | Integração dos restantes sensores, atuadores e funcionalidades do veículo |
+| Até 15/01/2027 | Desenvolvimento e documentação do plano de testes |
+| Janeiro | Preparação dos dados e desenvolvimento da componente de Inteligência Artificial |
+| Até 29/01/2027 | Conclusão da componente de Inteligência Artificial |
+| Até 01/02/2027 | Integração final, testes, correções, documentação e entrega final do projeto |
+
+### Fases de Desenvolvimento
+
+O projeto será dividido nas seguintes fases:
+
+1. **Planeamento e investigação**  
+   Definição do problema, funcionalidades, requisitos, arquitetura e componentes necessários.
+
+2. **Aprendizagem e testes individuais**  
+   Teste do ESP32 e de cada sensor ou atuador separadamente antes da montagem no veículo.
+
+3. **Construção do veículo base**  
+   Montagem do chassis, motores e controlador dos motores, permitindo avançar, recuar, virar e parar.
+
+4. **Integração de sensores e sistemas do veículo**  
+   Adição do sensor de obstáculos, encoders, iluminação, buzina e outros componentes.
+
+5. **Comunicação e armazenamento de dados**  
+   Ligação do ESP32 através de Wi-Fi ao servidor, utilização da API REST e armazenamento dos dados em MySQL.
+
+6. **Dashboard digital**  
+   Desenvolvimento da interface para controlo do veículo e visualização dos dados.
+
+7. **Inteligência Artificial**  
+   Preparação dos dados e desenvolvimento da componente analítica ou preditiva.
+
+8. **Integração e testes finais**  
+   Integração de todos os componentes, realização dos testes definidos e correção dos problemas encontrados.
+
 ## 13. Distribuição de Tarefas
 
 ## 14. Riscos do Projeto
