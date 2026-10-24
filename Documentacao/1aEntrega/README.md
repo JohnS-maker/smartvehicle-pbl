@@ -283,69 +283,72 @@ As tecnologias específicas para o backend e para a componente de Inteligência 
 
 A arquitetura do SmartVehicle será composta por vários componentes que comunicam entre si.
 
-O ESP32 será a unidade principal do veículo. Este será responsável pela leitura dos sensores, controlo dos motores e ativação dos diferentes atuadores.
+O ESP32 será a unidade principal instalada no veículo. Será responsável pela leitura dos sensores, controlo dos motores e ativação dos diferentes atuadores.
 
-A comunicação com o restante sistema será realizada através de Wi-Fi. O ESP32 enviará os dados recolhidos para um servidor Web através de uma API REST.
+A comunicação com o restante sistema será realizada através de Wi-Fi. O ESP32 enviará os dados recolhidos para um servidor Web através de uma API REST e receberá os comandos necessários ao controlo do veículo.
 
-O servidor será responsável por receber e disponibilizar a informação do veículo e por armazenar os dados numa base de dados MySQL.
+O servidor Web funcionará como ponto central de comunicação entre o veículo, o dashboard e a base de dados MySQL.
 
-O dashboard digital permitirá ao utilizador visualizar os dados do veículo e enviar comandos para o sistema.
+O dashboard digital permitirá ao utilizador visualizar os dados do SmartVehicle e enviar comandos para o sistema.
 
-A componente de Inteligência Artificial utilizará dados recolhidos pelos sensores do SmartVehicle em conjunto com pelo menos uma fonte de dados adicional. A fonte adicional será definida posteriormente de acordo com a solução desenvolvida na Unidade Curricular de Inteligência Artificial.
+A componente de Inteligência Artificial utilizará os dados recolhidos pelos sensores, juntamente com pelo menos uma fonte de dados adicional. A funcionalidade concreta desta componente será definida posteriormente.
 
 A arquitetura preliminar será:
 
-```
-                        ┌──────────────────────┐
-                        │  Dashboard Digital   │
-                        │ controlo + informação│
-                        └──────────┬───────────┘
-                                   │
-                                   │
-                                   ▼
-                        ┌──────────────────────┐
-                        │ Servidor Web /       │
-                        │ API REST             │
-                        └───────┬───────┬──────┘
-                                │       │
-                                │       ▼
-                                │   ┌───────────────┐
-                                │   │ Base de Dados │
-                                │   │     MySQL     │
-                                │   └───────┬───────┘
-                                │           │
-                                │           ▼
-                                │   ┌────────────────┐
-                                │   │ Inteligência   │◄──── Fonte de
-                                │   │ Artificial     │      dados adicional
-                                │   └────────────────┘
-                                │
-                              Wi-Fi
-                                │
-                                ▼
-                        ┌──────────────────────┐
-                        │        ESP32         │
-                        └──────────┬───────────┘
-                                   │
-                          ┌────────┴────────┐
-                          ▼                 ▼
-                     ┌─────────┐       ┌──────────┐
-                     │Sensores │       │Atuadores │
-                     └─────────┘       └──────────┘
+```text
+                         ┌──────────────────────┐
+                         │  Dashboard Digital   │
+                         │ controlo + informação│
+                         └──────────┬───────────┘
+                                    │
+                                    ↕
+                         ┌──────────────────────┐
+                         │ Servidor Web /       │
+                         │ API REST             │
+                         └───────┬───────┬──────┘
+                                 │       │
+                                 │       │ Wi-Fi
+                                 ▼       ▼
+                        ┌────────────┐  ┌──────────────┐
+                        │   MySQL    │  │    ESP32     │
+                        └─────┬──────┘  └──────┬───────┘
+                              │                │
+                              │          ┌─────┴─────┐
+                              │          ▼           ▼
+                              │      ┌────────┐  ┌──────────┐
+                              │      │Sensores│  │Atuadores │
+                              │      └────────┘  └──────────┘
+                              │
+                              ▼
+                     ┌─────────────────┐
+Fonte de dados ─────►│ Inteligência    │
+adicional            │ Artificial      │
+                     └────────┬────────┘
+                              │
+                              └──► resultados para o sistema
 ```
 
-### Fluxo principal de dados
+### Fluxo Principal de Dados
 
 1. Os sensores recolhem informação do veículo.
-2. O ESP32 recebe e processa os dados dos sensores.
-3. Os dados são enviados através de Wi-Fi para o servidor Web.
-4. O servidor recebe os dados através da API REST.
-5. Os dados são armazenados numa base de dados MySQL.
-6. O dashboard consulta e apresenta a informação ao utilizador.
-7. O utilizador poderá enviar comandos através do dashboard.
-8. A componente de Inteligência Artificial utilizará os dados do veículo juntamente com uma fonte de dados adicional para realizar análise ou previsão.
+2. O ESP32 recebe e processa os dados.
+3. O ESP32 envia os dados através de Wi-Fi para o servidor Web.
+4. O servidor armazena a informação necessária na base de dados MySQL.
+5. O dashboard consulta o sistema e apresenta a informação ao utilizador.
+6. O utilizador pode enviar comandos através do dashboard.
+7. O servidor transmite os comandos necessários ao ESP32.
+8. A componente de Inteligência Artificial utiliza os dados do SmartVehicle juntamente com uma fonte de dados adicional.
+9. Os resultados produzidos pela componente de Inteligência Artificial poderão ser disponibilizados ao restante sistema.
 
-Esta arquitetura é preliminar e poderá ser ajustada durante o desenvolvimento e integração do projeto.
+### Segurança Local
+
+Algumas funções de segurança deverão funcionar diretamente no ESP32 e não depender da ligação ao servidor.
+
+Por exemplo, se o sensor frontal detetar um obstáculo demasiado próximo, o ESP32 poderá impedir o veículo de continuar a avançar.
+
+Desta forma, uma função básica de segurança continuará disponível mesmo que exista uma falha temporária na comunicação Wi-Fi.
+
+Esta arquitetura é preliminar e poderá ser ajustada durante o desenvolvimento do projeto.
 
 ## 10. Hardware e Software
 
