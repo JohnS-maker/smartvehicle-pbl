@@ -461,6 +461,44 @@ O desenvolvimento do SmartVehicle será realizado de forma incremental. Cada fas
 | Até 29/01/2027 | Conclusão da componente de Inteligência Artificial |
 | Até 01/02/2027 | Integração final, testes, correções, documentação e entrega final do projeto |
 
+### Gráfico de Gantt
+
+O seguinte gráfico apresenta a calendarização preliminar das principais atividades do projeto. As datas poderão ser ajustadas de acordo com a evolução do desenvolvimento.
+
+```mermaid
+gantt
+    title Planeamento do Projeto SmartVehicle
+    dateFormat  YYYY-MM-DD
+    axisFormat  %d/%m
+
+    section Planeamento
+    Proposta inicial e arquitetura         :2026-10-20, 2026-10-27
+
+    section Engenharia de Software
+    Definição de requisitos                :2026-10-28, 2026-11-13
+
+    section Hardware e IoT
+    Testes individuais de componentes      :2026-10-28, 2026-11-15
+    Montagem do veículo base               :2026-11-05, 2026-11-22
+    Sensores e controlo do veículo          :2026-11-10, 2026-11-30
+    Protótipo funcional                    :2026-11-20, 2026-11-30
+
+    section Sistemas Distribuídos
+    Comunicação Wi-Fi e API REST           :2026-12-01, 2026-12-20
+    Servidor Web e MySQL                   :2026-12-01, 2026-12-20
+    Integração com dashboard               :2026-12-15, 2027-01-10
+
+    section Testes
+    Testes e validação                      :2026-12-15, 2027-01-15
+
+    section Inteligência Artificial
+    Preparação e tratamento dos dados       :2027-01-04, 2027-01-17
+    Desenvolvimento da componente IA        :2027-01-11, 2027-01-29
+
+    section Integração Final
+    Integração e correções finais            :2027-01-16, 2027-02-01
+```
+
 ### Fases de Desenvolvimento
 
 O projeto será dividido nas seguintes fases:
