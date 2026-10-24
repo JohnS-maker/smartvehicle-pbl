@@ -165,26 +165,27 @@ O sistema deverá detetar o obstáculo, apresentar a distância no dashboard e i
 
 ---
 
-### Guião de Teste 3 – Iluminação do Veículo
+### Guião de Teste 3 – Telemetria e Dashboard
 
 **Objetivo:**  
-Verificar se os sistemas de iluminação respondem aos comandos do utilizador.
+Verificar se os dados recolhidos pelos sensores do SmartVehicle são corretamente enviados, armazenados e apresentados no dashboard.
 
 **Passos:**
 
 1. Ligar o SmartVehicle.
-2. Abrir o dashboard.
-3. Ativar os faróis.
-4. Confirmar que os LEDs correspondentes aos faróis acendem.
-5. Ativar o pisca esquerdo.
-6. Confirmar que o indicador luminoso esquerdo pisca.
-7. Desativar o pisca esquerdo.
-8. Ativar o pisca direito.
-9. Confirmar que o indicador luminoso direito pisca.
-10. Desligar os sistemas de iluminação.
+2. Confirmar que o ESP32 está ligado à rede Wi-Fi.
+3. Ativar a recolha de dados do sensor frontal.
+4. Colocar um obstáculo a uma determinada distância do veículo.
+5. Confirmar que o ESP32 obtém o valor medido pelo sensor.
+6. Confirmar que o valor é enviado para o servidor através da comunicação definida.
+7. Verificar se o dado recebido é armazenado na base de dados MySQL.
+8. Abrir o dashboard digital.
+9. Confirmar que o valor da distância é apresentado no dashboard.
+10. Alterar a posição do obstáculo.
+11. Confirmar que o novo valor é novamente recolhido, transmitido, armazenado e atualizado no dashboard.
 
 **Resultado esperado:**  
-As luzes deverão responder corretamente aos comandos enviados pelo utilizador.
+O valor medido pelo sensor deverá percorrer corretamente todo o sistema, desde o ESP32 até ao servidor, base de dados e dashboard, permitindo ao utilizador visualizar informação atualizada sobre o veículo.
 
 ## 7. Enquadramento nas Unidades Curriculares
 
