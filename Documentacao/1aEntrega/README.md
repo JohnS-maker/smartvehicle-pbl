@@ -16,7 +16,7 @@
 - Joao Santos - 50031111; 
 - Tomas Pereira - 20241740;
 - Rui Grosso - 20241591;
-- Gonçalo Pereira - 20241565;
+- Gonçalo Oliveira - 20241565;
 
 **Unidades Curriculares envolvidas:**
 - Sistemas Distribuídos
