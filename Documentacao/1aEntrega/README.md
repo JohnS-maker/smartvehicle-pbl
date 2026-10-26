@@ -196,7 +196,7 @@ Verificar se os dados recolhidos pelos sensores do SmartVehicle são corretament
 3. Ativar a recolha de dados do sensor frontal.
 4. Colocar um obstáculo a uma determinada distância do veículo.
 5. Confirmar que o ESP32 obtém o valor medido pelo sensor.
-6. Confirmar que o valor é enviado para o servidor através da comunicação definida.
+6. Confirmar que o valor é enviado para o servidor através da API REST.
 7. Verificar se o dado recebido é armazenado na base de dados MySQL.
 8. Abrir o dashboard digital.
 9. Confirmar que o valor da distância é apresentado no dashboard.
@@ -313,7 +313,7 @@ O sistema deverá:
 - O limiar de segurança deverá ser configurável e definido através de testes com o veículo real.
 - A medição de velocidade através dos encoders deverá ser calibrada experimentalmente.
 
-A tecnologia utilizada para implementar o backend, o mecanismo final de transmissão dos comandos para o veículo e as ferramentas utilizadas na componente de Inteligência Artificial serão definidos posteriormente.
+A implementação do backend e as ferramentas da componente de Inteligência Artificial serão definidas posteriormente. O mecanismo REST com consulta periódica pelo ESP32 será utilizado como solução inicial para os comandos e poderá ser revisto durante os testes.
 
 Estas escolhas serão realizadas de acordo com os requisitos do projeto, a compatibilidade entre os diferentes componentes e a evolução do protótipo.
 
@@ -382,7 +382,7 @@ adicional            │ Artificial      │
 
 Algumas funções de segurança deverão funcionar diretamente no ESP32 e não depender da ligação ao servidor.
 
-Por exemplo, se o sensor frontal detetar um obstáculo demasiado próximo, o ESP32 poderá impedir o veículo de continuar a avançar.
+Por exemplo, se o sensor frontal detetar um obstáculo demasiado próximo, o ESP32 deverá bloquear o avanço do veículo.
 
 Desta forma, uma função básica de segurança continuará disponível mesmo que exista uma falha temporária na comunicação Wi-Fi.
 
@@ -421,28 +421,30 @@ Depois de o núcleo principal estar funcional, poderão ser utilizados outros co
 
 ### Lista Preliminar de Material
 
-| Componente | Quantidade | Utilização | Estado |
-|---|---:|---|---|
-| ESP32 | 1 | Unidade principal de controlo | Adquirido |
-| Chassis 2WD | 1 | Estrutura física do veículo | Encomendado / por receber |
-| Motores DC | 2 | Movimento do veículo | Incluídos no chassis |
-| Rodas | 2 | Deslocação do veículo | Incluídas no chassis |
-| Discos encoder | 2 | Medição da rotação das rodas | Incluídos no chassis |
-| TB6612FNG | 3 disponíveis | 1 previsto no protótipo | Controlo dos dois motores DC | Adquirido |
-| HC-SR04 | 5 disponíveis | 1 previsto no protótipo | Medição da distância a obstáculos | Adquirido |
-| RFID RC522 | 2 disponíveis | 0–1 complementar | Adquiridos |
-| Módulos de sensor ótico com LM393 | 10 disponíveis | 2 previstos no protótipo | Leitura dos discos encoder | Adquiridos |
-| Breadboard | 1 | Montagem e teste dos circuitos | Incluída no kit ESP32 |
-| Cabos Dupont | Vários | Ligações elétricas entre componentes | Incluídos no kit ESP32 |
-| LEDs | Vários | Iluminação e sinalização | Incluídos no kit ESP32 |
-| Resistências | Várias | Proteção e adaptação dos circuitos | Incluídas no kit ESP32 |
-| Buzzer | 1 | Simulação da buzina | Incluído no kit ESP32 |
-| Sensor de luminosidade | 1 | Deteção da luz ambiente | Incluído no kit ESP32 |
-| Sensor de temperatura | 1 | Medição da temperatura | Incluído no kit ESP32 |
-| Suporte para 4 pilhas AA | 1 | Alimentação dos motores | Incluído no chassis |
-| Pilhas AA | 4 | Alimentação dos motores | A adquirir |
-| Componentes para adaptação de tensão do HC-SR04 | A definir | Proteção da entrada do ESP32 | A adquirir / definir |
-| Sistema de alimentação final do ESP32 | A definir | Alimentação autónoma do microcontrolador | A definir |
+### Lista Preliminar de Material
+
+| Componente | Disponível | Previsto no protótipo | Utilização | Estado |
+|---|---:|---:|---|---|
+| ESP32 | 1 | 1 | Unidade principal de controlo do veículo | Recebido |
+| Chassis 2WD | 0 | 1 | Estrutura física do veículo | Encomendado / por receber |
+| Motores DC | 0 | 2 | Movimento do veículo | Incluídos no chassis / por receber |
+| Rodas | 0 | 2 | Deslocação do veículo | Incluídas no chassis / por receber |
+| Discos encoder | 0 | 2 | Medição da rotação das rodas | Incluídos no chassis / por receber |
+| TB6612FNG | 3 | 1 | Controlo dos dois motores DC | Recebido |
+| HC-SR04 | 5 | 1 | Medição da distância a obstáculos | Recebido |
+| Módulos óticos LM393 | 10 | 2 | Leitura dos discos encoder | Recebido |
+| Breadboard | 1 | 1 | Montagem e teste dos circuitos | Recebida no kit ESP32 |
+| Cabos Dupont | Vários | Vários | Ligações elétricas entre componentes | Recebidos no kit ESP32 |
+| LEDs | Vários | A definir | Iluminação e sinalização complementar | Recebidos no kit ESP32 |
+| Resistências | Várias | A definir | Proteção, limitação de corrente e adaptação de níveis | Recebidas no kit ESP32 |
+| Buzzer | 2 tipos | 0–1 | Simulação da buzina do veículo | Recebido no kit ESP32 |
+| Sensor de luminosidade | 1 | 0–1 | Deteção da luminosidade ambiente | Recebido no kit ESP32 |
+| DHT11 | 1 | 0–1 | Medição de temperatura e humidade | Recebido no kit ESP32 |
+| RFID RC522 | 2 | 0–1 | Possível chave eletrónica complementar | Recebido |
+| Suporte para 4 pilhas AA | 0 | 1 | Alimentação dos motores | Incluído no chassis / por receber |
+| Pilhas AA | 0 | 4 | Alimentação dos motores | A adquirir |
+| Divisor/adaptação de nível para HC-SR04 | A definir | 1 | Redução do sinal ECHO para um nível seguro para o ESP32 | Resistências disponíveis; solução a validar |
+| Sistema de alimentação autónoma do ESP32 | A definir | 1 | Alimentação regulada do microcontrolador | A definir |
 
 ### Software e Tecnologias
 
@@ -534,6 +536,8 @@ O desenvolvimento do SmartVehicle será realizado de forma incremental. Cada fas
 | Segunda metade de janeiro | Integração final, correções, vídeo técnico, poster e vídeo promocional |
 | 01/02/2027 | Entrega final e apresentação em Computação Física e IoT |
 | 02/02/2027 | Apresentação final em Sistemas Distribuídos |
+
+* O briefing apresenta 15/01/2027 na tabela-resumo e 25/01/2027 noutra secção. Para efeitos de planeamento foi considerada a data mais conservadora, 15/01/2027, até confirmação com o docente.
 
 ### Gráfico de Gantt
 
