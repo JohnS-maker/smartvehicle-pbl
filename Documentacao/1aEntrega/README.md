@@ -100,21 +100,22 @@ A funcionalidade concreta da componente de Inteligência Artificial será defini
 
 #### Hipótese Preliminar
 
-Como hipótese inicial, pretende-se estudar uma componente de Inteligência Artificial capaz de analisar ou estimar o risco de aproximação a obstáculos.
+Como hipótese inicial para a componente de Inteligência Artificial, pretende-se estudar a possibilidade de prever a distância necessária para o SmartVehicle parar em diferentes condições de funcionamento.
 
-O modelo poderá utilizar dados recolhidos pelo SmartVehicle, como:
+Durante os testes poderão ser realizados vários ensaios de travagem. Em cada ensaio serão registados dados como:
 
-- distância ao obstáculo;
-- velocidade estimada;
-- evolução destes valores ao longo do tempo.
+- velocidade estimada antes da ordem de paragem;
+- valor de controlo dos motores (PWM);
+- distância percorrida desde a ordem de paragem até o veículo ficar imobilizado;
+- condições adicionais associadas ao ensaio.
 
-Estes dados deverão ser combinados com pelo menos uma fonte adicional, como um conjunto de dados público ou valores de referência relacionados com distância de segurança, velocidade ou travagem.
+A distância efetivamente percorrida até à paragem poderá ser calculada através dos encoders, permitindo obter dados reais para treino e avaliação do modelo.
 
-O objetivo poderá ser classificar diferentes situações, por exemplo como risco baixo, moderado ou elevado, ou estimar a necessidade de intervenção.
+Os dados produzidos pelo SmartVehicle serão combinados com pelo menos uma fonte de dados adicional, a definir e validar no âmbito da Unidade Curricular de Inteligência Artificial.
 
-Esta componente terá uma função analítica ou preditiva e não substituirá o mecanismo de segurança local do ESP32. O bloqueio imediato do movimento perante um obstáculo continuará a funcionar diretamente no veículo.
+Esta componente não substituirá o mecanismo de segurança local do ESP32. A deteção imediata de obstáculos e o bloqueio do movimento continuarão a funcionar diretamente no veículo.
 
-A solução final de Inteligência Artificial e a fonte de dados adicional serão validadas posteriormente no âmbito da respetiva Unidade Curricular.
+A solução final, as variáveis utilizadas e a fonte adicional de dados serão validadas posteriormente com o docente da Unidade Curricular.
 
 ## 5. Público-Alvo
 
@@ -253,7 +254,11 @@ A componente de Inteligência Artificial será definida e desenvolvida numa fase
 
 ## 8. Requisitos Técnicos e Tecnologias
 
-Nesta fase do projeto, os requisitos técnicos principais estão definidos, enquanto algumas tecnologias e decisões de implementação permanecem provisórias e poderão ser ajustadas durante o desenvolvimento.
+Como solução inicial, o dashboard enviará comandos ao backend através da API REST. O backend manterá o comando atual e o ESP32 consultará periodicamente o servidor através de HTTP.
+
+Os comandos de movimento terão uma validade limitada. Caso o ESP32 deixe de receber comandos válidos ou perca a comunicação com o servidor, o veículo deverá parar automaticamente.
+
+Esta solução poderá ser revista durante os testes caso seja necessária uma alternativa com menor latência.
 
 ### Requisitos Técnicos Principais
 
@@ -297,6 +302,16 @@ O sistema deverá:
 - MySQL;
 - API REST;
 - tecnologias Web para desenvolvimento do dashboard.
+
+### Requisitos de Segurança e Robustez
+
+- O sinal ECHO do HC-SR04 deverá ser adaptado para um nível seguro antes de ser ligado ao ESP32.
+- Os motores não deverão ser alimentados através do ESP32.
+- O ESP32, o controlador dos motores e os sensores deverão utilizar uma referência de massa comum quando necessário.
+- Se o sensor frontal deixar de fornecer uma leitura válida, o avanço do veículo deverá ser bloqueado.
+- Se a comunicação com o servidor for perdida, os comandos de movimento deverão expirar e o veículo deverá parar.
+- O limiar de segurança deverá ser configurável e definido através de testes com o veículo real.
+- A medição de velocidade através dos encoders deverá ser calibrada experimentalmente.
 
 A tecnologia utilizada para implementar o backend, o mecanismo final de transmissão dos comandos para o veículo e as ferramentas utilizadas na componente de Inteligência Artificial serão definidos posteriormente.
 
@@ -409,13 +424,14 @@ Depois de o núcleo principal estar funcional, poderão ser utilizados outros co
 | Componente | Quantidade | Utilização | Estado |
 |---|---:|---|---|
 | ESP32 | 1 | Unidade principal de controlo | Adquirido |
-| Chassis 2WD | 1 | Estrutura física do veículo | Adquirido |
+| Chassis 2WD | 1 | Estrutura física do veículo | Encomendado / por receber |
 | Motores DC | 2 | Movimento do veículo | Incluídos no chassis |
 | Rodas | 2 | Deslocação do veículo | Incluídas no chassis |
 | Discos encoder | 2 | Medição da rotação das rodas | Incluídos no chassis |
-| TB6612FNG | 1 | Controlo dos dois motores DC | Adquirido |
-| HC-SR04 | 1 | Medição da distância a obstáculos | Adquirido |
-| Módulos de sensor ótico com LM393 | 2 | Leitura dos discos encoder | Adquiridos |
+| TB6612FNG | 3 disponíveis | 1 previsto no protótipo | Controlo dos dois motores DC | Adquirido |
+| HC-SR04 | 5 disponíveis | 1 previsto no protótipo | Medição da distância a obstáculos | Adquirido |
+| RFID RC522 | 2 disponíveis | 0–1 complementar | Adquiridos |
+| Módulos de sensor ótico com LM393 | 10 disponíveis | 2 previstos no protótipo | Leitura dos discos encoder | Adquiridos |
 | Breadboard | 1 | Montagem e teste dos circuitos | Incluída no kit ESP32 |
 | Cabos Dupont | Vários | Ligações elétricas entre componentes | Incluídos no kit ESP32 |
 | LEDs | Vários | Iluminação e sinalização | Incluídos no kit ESP32 |
@@ -488,7 +504,7 @@ A disposição preliminar dos componentes será semelhante à seguinte:
 
 Componentes complementares:
 LEDs, buzzer, sensor de luminosidade,
-sensor de temperatura e outros extras.
+sensor de temperatura, RFID e outros extras.
 ```
 
 Esta disposição é apenas uma representação preliminar. A posição final dos componentes poderá ser alterada durante a montagem, dependendo do espaço disponível no chassis e das necessidades das ligações elétricas.
