@@ -67,6 +67,7 @@ A primeira prioridade do projeto será desenvolver um protótipo funcional com a
 - controlar o movimento do veículo;
 - permitir avançar, recuar, virar e parar;
 - controlar os dois motores através do ESP32;
+- controlar a direção através da orientação das rodas dianteiras por um servomotor;
 - medir a distância a obstáculos;
 - medir a rotação das rodas e estimar a velocidade;
 - comunicar através de Wi-Fi;
@@ -152,14 +153,16 @@ Verificar se o utilizador consegue controlar corretamente o movimento do SmartVe
 4. Selecionar o comando para avançar.
 5. Confirmar que o veículo se desloca para a frente.
 6. Selecionar o comando para virar à esquerda.
-7. Confirmar que o veículo altera a direção.
+7. Confirmar que as rodas dianteiras se orientam e o veículo altera a direção.
 8. Selecionar o comando para virar à direita.
-9. Confirmar que o veículo altera a direção.
+9. Confirmar que as rodas dianteiras se orientam e o veículo altera a direção.
 10. Selecionar o comando para parar.
 11. Confirmar que o veículo fica imobilizado.
 
 **Resultado esperado:**  
 O veículo deverá responder corretamente aos comandos enviados através do dashboard.
+
+**Requisitos relacionados:** RF-11, RF-13, RF-14, RF-15, RF-16 e RF-52 (especificação de requisitos de Engenharia de Software).
 
 ---
 
@@ -178,9 +181,12 @@ Verificar se o SmartVehicle consegue detetar um obstáculo à sua frente e imped
 6. Aproximar o veículo do obstáculo.
 7. Verificar se o sistema identifica quando a distância fica abaixo do limite de segurança.
 8. Confirmar que o veículo deixa de avançar.
+9. Confirmar que o dashboard apresenta o alerta de obstáculo frontal e a indicação de bloqueio frontal.
 
 **Resultado esperado:**  
-O sistema deverá detetar o obstáculo, apresentar a distância no dashboard e impedir o avanço quando a distância for considerada insegura.
+O sistema deverá detetar o obstáculo, apresentar a distância no dashboard, impedir o avanço quando a distância for considerada insegura e apresentar o alerta de obstáculo e a indicação de bloqueio frontal.
+
+**Requisitos relacionados:** RF-35, RF-36, RF-37 e RF-38 (especificação de requisitos de Engenharia de Software).
 
 ---
 
@@ -244,6 +250,8 @@ Serão também trabalhados:
 - testes;
 - validação do sistema.
 
+A especificação de requisitos da aplicação encontra-se em [`smart_vehicle_requisitos.md`](smart_vehicle_requisitos.md) (versão 0.3.1), que reproduz o relatório entregue, sendo este a referência para os restantes documentos.
+
 ### Inteligência Artificial
 
 Nesta Unidade Curricular serão utilizados os dados recolhidos pelo SmartVehicle para desenvolver uma componente analítica ou preditiva.
@@ -267,6 +275,7 @@ O sistema deverá:
 - utilizar um microcontrolador ESP32;
 - integrar sensores e atuadores;
 - controlar os dois motores DC do veículo;
+- controlar o servomotor de direção das rodas dianteiras;
 - recolher dados dos sensores;
 - comunicar através de Wi-Fi;
 - enviar os dados recolhidos para um servidor Web;
@@ -283,6 +292,7 @@ O sistema deverá:
 - chassis 2WD;
 - motores DC;
 - controlador de motores TB6612FNG;
+- servomotor e mecanismo de direção das rodas dianteiras;
 - sensor ultrassónico HC-SR04;
 - módulos de sensor ótico de velocidade com LM393;
 - discos encoder.
@@ -400,6 +410,7 @@ Os componentes essenciais são os necessários para construir e testar o núcleo
 | Chassis 2WD | Estrutura física do SmartVehicle |
 | 2 Motores DC | Movimento do veículo |
 | TB6612FNG | Controlo dos motores |
+| Servomotor de direção | Orientação das rodas dianteiras |
 | HC-SR04 | Medição da distância a obstáculos |
 | 2 módulos de sensor ótico de velocidade com LM393 | Leitura dos discos encoder |
 | Discos Encoder | Permitem medir a rotação das rodas |
@@ -421,14 +432,13 @@ Depois de o núcleo principal estar funcional, poderão ser utilizados outros co
 
 ### Lista Preliminar de Material
 
-### Lista Preliminar de Material
-
 | Componente | Disponível | Previsto no protótipo | Utilização | Estado |
 |---|---:|---:|---|---|
 | ESP32 | 1 | 1 | Unidade principal de controlo do veículo | Recebido |
 | Chassis 2WD | 0 | 1 | Estrutura física do veículo | Encomendado / por receber |
 | Motores DC | 0 | 2 | Movimento do veículo | Incluídos no chassis / por receber |
-| Rodas | 0 | 2 | Deslocação do veículo | Incluídas no chassis / por receber |
+| Rodas motrizes | 0 | 2 | Tração do veículo | Incluídas no chassis / por receber |
+| Servomotor e mecanismo de direção dianteira | 0 | 1 | Orientação das rodas dianteiras | A definir |
 | Discos encoder | 0 | 2 | Medição da rotação das rodas | Incluídos no chassis / por receber |
 | TB6612FNG | 3 | 1 | Controlo dos dois motores DC | Recebido |
 | HC-SR04 | 5 | 1 | Medição da distância a obstáculos | Recebido |
@@ -440,10 +450,11 @@ Depois de o núcleo principal estar funcional, poderão ser utilizados outros co
 | Buzzer | 2 tipos | 0–1 | Simulação da buzina do veículo | Recebido no kit ESP32 |
 | Sensor de luminosidade | 1 | 0–1 | Deteção da luminosidade ambiente | Recebido no kit ESP32 |
 | DHT11 | 1 | 0–1 | Medição de temperatura e humidade | Recebido no kit ESP32 |
-| RFID RC522 | 2 | 0–1 | Possível chave eletrónica complementar | Recebido |
+| RFID RC522 | 2 | 0 | Autenticação por RFID — fora do âmbito da versão atual (WH-01) | Recebido |
 | Suporte para 4 pilhas AA | 0 | 1 | Alimentação dos motores | Incluído no chassis / por receber |
 | Pilhas AA | 0 | 4 | Alimentação dos motores | A adquirir |
 | Divisor/adaptação de nível para HC-SR04 | A definir | 1 | Redução do sinal ECHO para um nível seguro para o ESP32 | Resistências disponíveis; solução a validar |
+| Divisor de tensão para medição da bateria | A definir | 1 | Medição da tensão da bateria para cálculo da percentagem de carga | Resistências disponíveis; solução a validar |
 | Sistema de alimentação autónoma do ESP32 | A definir | 1 | Alimentação regulada do microcontrolador | A definir |
 
 ### Software e Tecnologias
@@ -467,7 +478,7 @@ As tecnologias específicas utilizadas no backend e na componente de Inteligênc
 
 ## 11. Artefacto Físico
 
-O artefacto físico do projeto será um pequeno veículo de duas rodas motrizes, construído sobre um chassis 2WD.
+O artefacto físico do projeto será um pequeno veículo de duas rodas motrizes, construído sobre um chassis 2WD, com direção através da orientação das rodas dianteiras por um servomotor.
 
 O ESP32 será instalado no veículo e funcionará como unidade principal de controlo. Este receberá informação dos sensores e controlará os motores e os diferentes atuadores.
 
@@ -484,6 +495,7 @@ A disposição preliminar dos componentes será semelhante à seguinte:
 
                  [ HC-SR04 ]
                       │
+  Roda dianteira E ─ [ Servo de direção ] ─ Roda dianteira D
                       │
               ┌───────────────┐
               │     ESP32     │
@@ -589,7 +601,7 @@ O projeto será dividido nas seguintes fases:
    Teste do ESP32 e de cada sensor ou atuador separadamente antes da montagem no veículo.
 
 3. **Construção do veículo base**  
-   Montagem do chassis, motores e controlador dos motores, permitindo avançar, recuar, virar e parar.
+   Montagem do chassis, motores, controlador dos motores e mecanismo de direção, permitindo avançar, recuar, virar e parar.
 
 4. **Integração de sensores e sistemas do veículo**  
    Adição do sensor de obstáculos, encoders, iluminação, buzina e outros componentes.

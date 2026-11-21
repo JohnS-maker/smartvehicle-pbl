@@ -202,6 +202,7 @@
       <li>controlar o movimento do veículo;</li>
       <li>permitir avançar, recuar, virar e parar;</li>
       <li>controlar os dois motores através do ESP32;</li>
+      <li>controlar a direção através da orientação das rodas dianteiras por um servomotor;</li>
       <li>medir a distância a obstáculos;</li>
       <li>medir a rotação das rodas e estimar a velocidade;</li>
       <li>comunicar através de Wi-Fi;</li>
@@ -265,13 +266,14 @@
       <li>Selecionar o comando para avançar.</li>
       <li>Confirmar que o veículo se desloca para a frente.</li>
       <li>Selecionar o comando para virar à esquerda.</li>
-      <li>Confirmar que o veículo altera a direção.</li>
+      <li>Confirmar que as rodas dianteiras se orientam e o veículo altera a direção.</li>
       <li>Selecionar o comando para virar à direita.</li>
-      <li>Confirmar que o veículo altera a direção.</li>
+      <li>Confirmar que as rodas dianteiras se orientam e o veículo altera a direção.</li>
       <li>Selecionar o comando para parar.</li>
       <li>Confirmar que o veículo fica imobilizado.</li>
     </ol>
     <p><strong>Resultado esperado:</strong> O veículo deverá responder corretamente aos comandos enviados através do dashboard.</p>
+    <p><strong>Requisitos relacionados:</strong> RF-11, RF-13, RF-14, RF-15, RF-16 e RF-52 (especificação de requisitos de Engenharia de Software).</p>
 
     <h3>Guião de Teste 2 – Deteção de Obstáculos</h3>
     <p><strong>Objetivo:</strong> Verificar se o SmartVehicle consegue detetar um obstáculo à sua frente e impedir uma aproximação considerada insegura.</p>
@@ -284,8 +286,10 @@
       <li>Aproximar o veículo do obstáculo.</li>
       <li>Verificar se o sistema identifica quando a distância fica abaixo do limite de segurança.</li>
       <li>Confirmar que o veículo deixa de avançar.</li>
+      <li>Confirmar que o dashboard apresenta o alerta de obstáculo frontal e a indicação de bloqueio frontal.</li>
     </ol>
-    <p><strong>Resultado esperado:</strong> O sistema deverá detetar o obstáculo, apresentar a distância no dashboard e impedir o avanço quando a distância for considerada insegura.</p>
+    <p><strong>Resultado esperado:</strong> O sistema deverá detetar o obstáculo, apresentar a distância no dashboard, impedir o avanço quando a distância for considerada insegura e apresentar o alerta de obstáculo e a indicação de bloqueio frontal.</p>
+    <p><strong>Requisitos relacionados:</strong> RF-35, RF-36, RF-37 e RF-38 (especificação de requisitos de Engenharia de Software).</p>
 
     <h3>Guião de Teste 3 – Telemetria e Dashboard</h3>
     <p><strong>Objetivo:</strong> Verificar se os dados recolhidos pelos sensores do SmartVehicle são corretamente enviados, armazenados e apresentados no dashboard.</p>
@@ -331,6 +335,7 @@
       <li>testes;</li>
       <li>validação do sistema.</li>
     </ul>
+    <p>A especificação de requisitos da aplicação encontra-se em <a href="smart_vehicle_requisitos.md">smart_vehicle_requisitos.md</a> (versão 0.3.1), que reproduz o relatório entregue, sendo este a referência para os restantes documentos.</p>
 
     <h3>Inteligência Artificial</h3>
     <p>Os dados provenientes dos sensores deverão ser combinados com pelo menos uma fonte adicional de dados.</p>
@@ -344,6 +349,7 @@
       <li>utilizar um microcontrolador ESP32;</li>
       <li>integrar sensores e atuadores;</li>
       <li>controlar os dois motores DC do veículo;</li>
+      <li>controlar o servomotor de direção das rodas dianteiras;</li>
       <li>recolher dados dos sensores;</li>
       <li>comunicar através de Wi-Fi;</li>
       <li>enviar os dados recolhidos para um servidor Web;</li>
@@ -361,6 +367,7 @@
       <li>chassis 2WD;</li>
       <li>motores DC;</li>
       <li>controlador de motores TB6612FNG;</li>
+      <li>servomotor e mecanismo de direção das rodas dianteiras;</li>
       <li>sensor ultrassónico HC-SR04;</li>
       <li>módulos de sensor ótico de velocidade com LM393;</li>
       <li>discos encoder.</li>
@@ -457,6 +464,7 @@ adicional            │ Artificial      │
         <tr><td>Chassis 2WD</td><td>Estrutura física do SmartVehicle</td></tr>
         <tr><td>2 Motores DC</td><td>Movimento do veículo</td></tr>
         <tr><td>TB6612FNG</td><td>Controlo dos motores</td></tr>
+        <tr><td>Servomotor de direção</td><td>Orientação das rodas dianteiras</td></tr>
         <tr><td>HC-SR04</td><td>Medição da distância a obstáculos</td></tr>
         <tr><td>2 módulos de sensor ótico de velocidade com LM393</td><td>Leitura dos discos encoder</td></tr>
         <tr><td>Discos Encoder</td><td>Permitem medir a rotação das rodas</td></tr>
@@ -489,7 +497,8 @@ adicional            │ Artificial      │
         <tr><td>ESP32</td><td>1</td><td>Unidade principal de controlo</td><td>Adquirido</td></tr>
         <tr><td>Chassis 2WD</td><td>1</td><td>Estrutura física do veículo</td><td>Adquirido</td></tr>
         <tr><td>Motores DC</td><td>2</td><td>Movimento do veículo</td><td>Incluídos no chassis</td></tr>
-        <tr><td>Rodas</td><td>2</td><td>Deslocação do veículo</td><td>Incluídas no chassis</td></tr>
+        <tr><td>Rodas motrizes</td><td>2</td><td>Tração do veículo</td><td>Incluídas no chassis</td></tr>
+        <tr><td>Servomotor e mecanismo de direção dianteira</td><td>1</td><td>Orientação das rodas dianteiras</td><td>A definir</td></tr>
         <tr><td>Discos encoder</td><td>2</td><td>Medição da rotação das rodas</td><td>Incluídos no chassis</td></tr>
         <tr><td>TB6612FNG</td><td>1</td><td>Controlo dos dois motores DC</td><td>Adquirido</td></tr>
         <tr><td>HC-SR04</td><td>1</td><td>Medição da distância a obstáculos</td><td>Adquirido</td></tr>
@@ -504,6 +513,7 @@ adicional            │ Artificial      │
         <tr><td>Suporte para 4 pilhas AA</td><td>1</td><td>Alimentação dos motores</td><td>Incluído no chassis</td></tr>
         <tr><td>Pilhas AA</td><td>4</td><td>Alimentação dos motores</td><td>A adquirir</td></tr>
         <tr><td>Componentes para adaptação de tensão do HC-SR04</td><td>A definir</td><td>Proteção da entrada do ESP32</td><td>A adquirir / definir</td></tr>
+        <tr><td>Divisor de tensão para medição da bateria</td><td>1</td><td>Medição da tensão da bateria para cálculo da percentagem de carga</td><td>A definir</td></tr>
         <tr><td>Sistema de alimentação final do ESP32</td><td>A definir</td><td>Alimentação autónoma do microcontrolador</td><td>A definir</td></tr>
       </tbody>
     </table>
@@ -529,7 +539,7 @@ adicional            │ Artificial      │
 
     <h2>11. Artefacto Físico</h2>
 
-    <p>O artefacto físico do projeto será um pequeno veículo de duas rodas motrizes, construído sobre um chassis 2WD.</p>
+    <p>O artefacto físico do projeto será um pequeno veículo de duas rodas motrizes, construído sobre um chassis 2WD, com direção através da orientação das rodas dianteiras por um servomotor.</p>
     <p>O ESP32 será instalado no veículo e funcionará como unidade principal de controlo. Este receberá informação dos sensores e controlará os motores e os diferentes atuadores.</p>
     <p>Na parte frontal do veículo será instalado um sensor ultrassónico HC-SR04 para medir a distância a obstáculos.</p>
     <p>Junto às rodas serão utilizados discos encoder e sensores óticos LM393, permitindo contar as rotações das rodas e calcular valores como velocidade e distância percorrida.</p>
@@ -539,6 +549,7 @@ adicional            │ Artificial      │
 
                  [ HC-SR04 ]
                       │
+  Roda dianteira E ─ [ Servo de direção ] ─ Roda dianteira D
                       │
               ┌───────────────┐
               │     ESP32     │
@@ -634,7 +645,7 @@ sensor de temperatura e outros extras.</pre>
     <ol>
       <li><strong>Planeamento e investigação</strong> – Definição do problema, funcionalidades, requisitos, arquitetura e componentes necessários.</li>
       <li><strong>Aprendizagem e testes individuais</strong> – Teste do ESP32 e de cada sensor ou atuador separadamente antes da montagem no veículo.</li>
-      <li><strong>Construção do veículo base</strong> – Montagem do chassis, motores e controlador dos motores, permitindo avançar, recuar, virar e parar.</li>
+      <li><strong>Construção do veículo base</strong> – Montagem do chassis, motores, controlador dos motores e mecanismo de direção, permitindo avançar, recuar, virar e parar.</li>
       <li><strong>Integração de sensores e sistemas do veículo</strong> – Adição do sensor de obstáculos, encoders, iluminação, buzina e outros componentes.</li>
       <li><strong>Comunicação e armazenamento de dados</strong> – Ligação do ESP32 através de Wi‑Fi ao servidor, utilização da API REST e armazenamento dos dados em MySQL.</li>
       <li><strong>Dashboard digital</strong> – Desenvolvimento da interface para controlo do veículo e visualização dos dados.</li>
