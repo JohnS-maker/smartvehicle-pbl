@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SmartVehicle — Control Center</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!-- Página principal do SmartVehicle -->
+<main class="shell">
+  <!-- Cabeçalho e ligação -->
+    <header class="top">
+    <div class="brand"><div class="mark"><svg width="28" height="28" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 21 8 13h16l4 8v5H4v-5ZM10 13l3-5h6l3 5M4 21h24"/><circle cx="9" cy="26" r="2" fill="currentColor"/><circle cx="23" cy="26" r="2" fill="currentColor"/></svg></div><div><h1>Smart<span>Vehicle</span></h1><p class="eyebrow">VEHICLE CONTROL CENTER</p></div></div>
+    <div class="headright"><span id="modeBadge" class="mode">MODO DEMO</span><span id="connectionBadge" class="chip ok"><span class="dot"></span><span id="connectionText">Simulador ativo</span></span></div>
+  </header>
+  <div class="layout">
+    <!-- Comandos de condução -->
+    <section class="panel drive" aria-label="Controlos de condução">
+      <h2>Controlo de condução</h2><p class="sub">Controla o veículo em tempo real</p>
+      <div class="pad">
+        <button class="control up" data-key="w" aria-label="Avançar"><svg viewBox="0 0 24 24"><path d="M12 19V5m-7 7 7-7 7 7"/></svg><span>Avançar</span><kbd>W</kbd></button>
+        <button class="control left" data-key="a" aria-label="Esquerda"><svg viewBox="0 0 24 24"><path d="M19 12H5m7-7-7 7 7 7"/></svg><span>Esquerda</span><kbd>A</kbd></button>
+        <button class="control stop" id="stopBtn" aria-label="Parar"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/></svg><span>Parar</span><kbd>ESPAÇO</kbd></button>
+        <button class="control right" data-key="d" aria-label="Direita"><svg viewBox="0 0 24 24"><path d="M5 12h14m-7-7 7 7-7 7"/></svg><span>Direita</span><kbd>D</kbd></button>
+        <button class="control down" data-key="s" aria-label="Recuar"><svg viewBox="0 0 24 24"><path d="M12 5v14m-7-7 7 7 7-7"/></svg><span>Recuar</span><kbd>S</kbd></button>
+      </div>
+      <div class="help"><b>Atalhos:</b> WASD para conduzir · <b>Espaço</b> para parar.<br>Liberta W/S para parar. Teclas opostas cancelam-se.</div>
+    </section>
+    <!-- Carro desenhado em SVG -->
+    <section class="stage" id="stage" aria-label="Visualização dinâmica do veículo">
+      <div class="stage-head"><div><strong>VEÍCULO</strong><br><small>VISTA SUPERIOR · 2WD</small></div><div id="stateBadge" class="status-pill">PARADO</div></div>
+      <div class="car-area">
+        <div class="rings" aria-hidden="true"></div>
+        <svg id="obstacleArcs" class="obstacle-arcs" viewBox="0 0 260 110" aria-hidden="true"><path d="M70 80 Q130 12 190 80"/><path d="M47 78 Q130 -12 213 78"/><path d="M94 80 Q130 43 166 80"/></svg>
+        <svg class="car-svg" id="car" viewBox="0 0 260 400" role="img" aria-label="Carro visto de cima, com rodas e luzes indicativas">
+          <defs><linearGradient id="metal" x1="0" x2="1" y1="0" y2=".6"><stop offset="0" stop-color="#eef5fc"/><stop offset=".36" stop-color="#a3afbb"/><stop offset=".65" stop-color="#d2dae1"/><stop offset="1" stop-color="#637587"/></linearGradient><linearGradient id="glass" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#203447"/><stop offset="1" stop-color="#0b1520"/></linearGradient><filter id="glow"><feGaussianBlur stdDeviation="7"/></filter></defs>
+          <g id="leftBeam" class="head-beam"><path d="M67 91 28 9 98 9 93 91Z" fill="#92dcff" opacity=".23" filter="url(#glow)"/><path d="M67 91 28 9 98 9 93 91Z" fill="#9cddff" opacity=".09"/></g><g id="rightBeam" class="head-beam"><path d="M167 91 156 9 232 9 193 91Z" fill="#92dcff" opacity=".23" filter="url(#glow)"/><path d="M167 91 156 9 232 9 193 91Z" fill="#9cddff" opacity=".09"/></g>
+          <g fill="#151922" stroke="#455263" stroke-width="3"><rect class="wheel frontwheel" x="37" y="91" width="23" height="65" rx="9"/><rect class="wheel frontwheel" x="200" y="91" width="23" height="65" rx="9"/><rect class="wheel" x="36" y="266" width="24" height="70" rx="9"/><rect class="wheel" x="200" y="266" width="24" height="70" rx="9"/></g>
+          <path d="M91 56 Q130 39 169 56 L195 75 Q211 108 210 153 L205 309 Q204 343 188 359 L73 359 Q56 343 55 309 L50 153 Q49 108 65 75Z" fill="url(#metal)" stroke="#f7faff" stroke-opacity=".66" stroke-width="2"/>
+          <path d="M78 111 Q130 91 182 111 L196 150 184 185 75 185 64 150Z" fill="url(#glass)" stroke="#91a8bd" stroke-width="3"/><path d="M77 198 184 198 188 297 Q131 313 72 297Z" fill="#1d2a38" stroke="#9aacb9" stroke-width="2"/><path d="M75 204 185 204" stroke="#7a91a2" stroke-width="2"/><path d="M65 319 193 319" stroke="#738797" stroke-width="2"/><path d="M79 67 Q130 56 181 67" fill="none" stroke="#f4faff" stroke-opacity=".7" stroke-width="5"/>
+          <path d="M53 164 45 174 47 190 61 184M207 164 215 174 213 190 199 184" fill="#72899a" stroke="#b0c3d2" stroke-width="2"/>
+          <rect x="65" y="73" width="33" height="11" rx="4" fill="#d8f3ff"/><rect x="162" y="73" width="33" height="11" rx="4" fill="#d8f3ff"/><rect id="leftIndicator" class="indicator" x="52" y="85" width="14" height="14" rx="4" fill="#ffc15a"/><rect id="rightIndicator" class="indicator" x="194" y="85" width="14" height="14" rx="4" fill="#ffc15a"/>
+          <rect id="leftBrake" class="brake" x="65" y="346" width="34" height="10" rx="3" fill="#ff4d67"/><rect id="rightBrake" class="brake" x="161" y="346" width="34" height="10" rx="3" fill="#ff4d67"/>
+          <path d="M93 103 Q130 93 167 103" stroke="#c3e5f8" stroke-opacity=".4" stroke-width="3" fill="none"/>
+        </svg>
+      </div>
+      <div class="stage-footer"><span class="state-dot"></span><span id="carStatus">Veículo parado · pronto para conduzir</span></div>
+    </section>
+    <!-- Valores recebidos do carro -->
+    <aside class="metrics" aria-label="Telemetria">
+      <div class="panel metric"><div class="metric-top"><svg viewBox="0 0 24 24"><path d="M3 9c6-6 12-6 18 0M6 13c4-4 8-4 12 0m-9 4c2-2 4-2 6 0"/></svg>Distância frontal</div><div id="distance" class="value">86 <small>cm</small></div><div id="distanceDetail" class="metric-detail">Sensor ultrassónico · simulado</div></div>
+      <div class="panel metric"><div class="metric-top"><svg viewBox="0 0 24 24"><path d="M3 17a9 9 0 1 1 18 0M12 15l5-6"/><circle cx="12" cy="15" r="1.5"/></svg>Velocidade estimada</div><div id="speed" class="value">0,0 <small>km/h</small></div><div class="metric-detail">Encoders · estimativa</div></div>
+      <div class="panel metric"><div class="metric-top"><svg viewBox="0 0 24 24"><path d="M2 8c6-5 14-5 20 0M5 12c4-3 10-3 14 0M9 16c2-2 4-2 6 0"/><circle cx="12" cy="20" r="1" fill="currentColor"/></svg>Ligação ESP32</div><div id="linkValue" class="value" style="font-size:22px;color:var(--green)">Simulação</div><div id="linkDetail" class="metric-detail">HTTP local · preparado</div></div>
+      <div class="panel alert hidden" id="alertBox"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#ff7789" stroke-width="2"><path d="M12 3 2 21h20L12 3Zm0 6v5m0 4v1"/></svg><div><div id="alertTitle" class="alert-title">Caminho livre</div><div id="alertSub" class="alert-sub">Sem bloqueio frontal</div></div></div>
+    </aside>
+  </div>
+  <!-- Funcionalidades extras -->
+    <section class="panel actions" aria-label="Ações secundárias"><div class="actions-caption"><strong>Ações rápidas</strong><p>Extras fora do MVP físico</p></div><div class="actions-line"></div><div class="action-buttons"><button id="headlights" class="action" disabled title="Hardware não integrado"><svg viewBox="0 0 24 24"><path d="M6 5q10 0 10 7T6 19V5Zm13 3h4m-4 4h4m-4 4h4"/></svg>Faróis</button><button id="turnLeft" class="action" disabled title="Hardware não integrado"><svg viewBox="0 0 24 24"><path d="m12 5-7 7 7 7M5 12h15"/></svg>Pisca esquerdo</button><button id="turnRight" class="action" disabled title="Hardware não integrado"><svg viewBox="0 0 24 24"><path d="m12 5 7 7-7 7M19 12H4"/></svg>Pisca direito</button><button class="action" disabled title="Hardware não integrado"><svg viewBox="0 0 24 24"><path d="m3 10 9-4v12l-9-4v-4Zm12-3q6 5 0 10"/></svg>Buzina</button></div></section>
+  <!-- Seleção do modo de funcionamento -->
+    <div class="bottom"><div><label for="connectionMode">Origem dos dados <select id="connectionMode"><option value="demo">Demonstração local</option><option value="esp32">ESP32 (HTTP)</option></select></label></div><div style="display:flex;gap:10px;align-items:center"><button id="obstacleButton">Simular obstáculo: OFF</button><span id="footerInfo">MVP · controlo 2WD · sem MySQL nesta fase</span></div></div>
+</main>
+<script src="js/app.js" defer></script>
+</body>
+</html>
